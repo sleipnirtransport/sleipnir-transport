@@ -7,17 +7,14 @@
   <meta name="description" content="Sleipnir Transport Logistics provides reliable long-distance household moving and secure storage from a Pennsylvania hub to the contiguous 48 states and Alaska." />
   <style>
     :root {
-      /* OD green / coyote tan / black / white palette */
-      --bg: #10140f;
-      --bg-alt: #181f16;
-      --accent: #c2a878; /* coyote tan */
-      --accent-soft: rgba(194, 168, 120, 0.15);
+      --bg: #10140f;       /* OD green base */
+      --panel: #181f16;    /* darker panel */
+      --accent: #c2a878;   /* coyote tan */
       --text-main: #f5f5f5;
       --text-muted: #cbd5c0;
-      --border-subtle: rgba(163, 177, 138, 0.45);
+      --border: #3b4333;
       --radius-lg: 18px;
-      --radius-full: 999px;
-      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.75);
+      --radius-md: 12px;
     }
 
     * {
@@ -28,7 +25,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:  background: #ff00ff;
+      background: var(--bg);
       color: var(--text-main);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -40,9 +37,9 @@
     }
 
     .page {
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 20px 16px 50px;
+      padding: 20px 16px 40px;
     }
 
     .topbar {
@@ -53,19 +50,19 @@
       padding: 10px 14px;
       margin-bottom: 18px;
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: rgba(8, 10, 7, 0.96);
+      border: 1px solid var(--border);
+      background: #121812;
       font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .topbar span.strong {
+    .topbar-strong {
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .topbar-contact {
+    .topbar-right {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -77,9 +74,10 @@
       align-items: center;
       gap: 6px;
       padding: 3px 9px;
-      border-radius: var(--radius-full);
-      background: rgba(7, 9, 6, 0.94);
-      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      background: #1b2318;
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
     }
 
     .pill-dot {
@@ -87,75 +85,28 @@
       height: 8px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
     }
-
-    .btn-primary,
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: var(--radius-full);
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: radial-gradient(circle at top left, var(--accent), #b0895e);
-      color: #050505;
-      border: none;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.03);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(203, 213, 185, 0.8);
-      background: transparent;
-      color: var(--text-main);
-      transition: background 0.12s ease, border-color 0.12s ease;
-    }
-
-    .btn-outline:hover {
-      background: rgba(13, 17, 12, 0.96);
-      border-color: #ffffff;
-    }
-
-    /* HERO */
 
     .hero {
       margin-top: 10px;
-      padding: 28px 18px 24px;
-      border-radius: 24px;
-      border: 1px solid var(--border-subtle);
-      background:
-        radial-gradient(circle at top, var(--accent-soft), transparent 55%),
-        linear-gradient(145deg, #131911, #070906);
-      box-shadow: var(--shadow-soft);
+      padding: 24px 18px 20px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--panel);
       text-align: center;
     }
 
     .hero-logo-wrapper {
-      width: 190px;
-      height: 190px;
+      width: 200px;
+      height: 200px;
       margin: 0 auto 14px;
-      border-radius: 32px;
-      background: #020202;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 28px;
+      background: #000;
+      border: 1px solid #333;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9);
     }
 
     .hero-logo-wrapper img {
@@ -166,39 +117,22 @@
     }
 
     .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 10px;
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-      background: rgba(9, 11, 7, 0.94);
-      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .hero-kicker span.tag {
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #fef9c3;
-      font-size: 0.74rem;
-      font-weight: 500;
+      margin-bottom: 6px;
     }
 
     h1 {
-      font-size: clamp(1.8rem, 3vw, 2.2rem);
-      line-height: 1.1;
-      margin-bottom: 8px;
-      letter-spacing: 0.04em;
+      font-size: 1.9rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
     .hero-sub {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
-      max-width: 36rem;
+      max-width: 34rem;
       margin: 0 auto 16px;
     }
 
@@ -207,158 +141,160 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #181818;
+      border: none;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--accent);
+      color: var(--text-main);
+      background: transparent;
     }
 
     .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
       font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    .hero-chip {
-      padding: 3px 9px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(163, 177, 138, 0.6);
-      background: rgba(8, 10, 7, 0.96);
-    }
-
-    /* SECTIONS */
-
     .section {
-      margin-top: 26px;
-      padding: 18px 18px 20px;
-      border-radius: 20px;
-      border: 1px solid var(--border-subtle);
-      background: linear-gradient(135deg, #141a12, #070906);
+      margin-top: 22px;
+      padding: 18px 18px 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--panel);
     }
 
     .section h2 {
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-      text-transform: uppercase;
+      font-size: 1rem;
       letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
     }
 
     .section p {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 12px;
       margin-top: 10px;
     }
 
-    @media (max-width: 800px) {
-      .grid-3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .card {
+      border-radius: var(--radius-md);
+      background: #111711;
+      border: 1px solid #2c3327;
+      padding: 10px 11px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
     }
 
-    .mini-card {
-      border-radius: 14px;
-      padding: 12px 12px 13px;
-      background: rgba(8, 10, 7, 0.98);
-      border: 1px solid rgba(75, 85, 69, 0.9);
-    }
-
-    .mini-card h3 {
+    .card h3 {
       font-size: 0.9rem;
       margin-bottom: 4px;
-    }
-
-    .mini-card p {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 0;
+      color: var(--text-main);
     }
 
     .list {
       list-style: none;
       padding-left: 0;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
     }
 
     .list li {
+      margin-bottom: 5px;
       display: flex;
       gap: 8px;
-      margin-bottom: 5px;
     }
 
-    .list-bullet {
-      width: 5px;
-      height: 5px;
+    .bullet {
+      width: 4px;
+      height: 4px;
       border-radius: 999px;
       background: var(--accent);
-      margin-top: 6px;
+      margin-top: 7px;
       flex-shrink: 0;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      gap: 12px;
       margin-top: 10px;
     }
 
-    @media (max-width: 700px) {
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .topbar-contact {
-        justify-content: flex-start;
-      }
-    }
-
     .contact-box {
-      border-radius: 14px;
+      border-radius: var(--radius-md);
+      background: #111711;
+      border: 1px solid #2c3327;
       padding: 10px 11px;
-      background: rgba(8, 10, 7, 0.96);
-      border: 1px solid rgba(75, 85, 69, 0.9);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
     }
 
     .contact-box strong {
-      color: #f5f5f5;
+      color: var(--text-main);
     }
 
     footer {
-      margin-top: 26px;
-      font-size: 0.75rem;
+      margin-top: 24px;
+      font-size: 0.74rem;
       color: var(--text-muted);
       text-align: center;
-      padding-top: 12px;
-      border-top: 1px solid rgba(36, 46, 30, 0.9);
+      padding-top: 10px;
+      border-top: 1px solid #232b20;
     }
 
-    footer a {
-      color: #e5e7eb;
+    @media (max-width: 720px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .topbar-right {
+        justify-content: flex-start;
+      }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
 <body>
   <div class="page">
     <div class="topbar">
-      <span class="strong">Sleipnir Transport Logistics</span>
-      <div class="topbar-contact">
+      <span class="topbar-strong">Sleipnir Transport Logistics</span>
+      <div class="topbar-right">
         <div class="pill">
           <span class="pill-dot"></span>
           <span>Long-distance household moving</span>
         </div>
-        <span>Based in Pennsylvania • Serving the contiguous 48 & Alaska</span>
+        <span>Pennsylvania hub • Contiguous 48 & Alaska</span>
       </div>
     </div>
 
@@ -366,20 +302,17 @@
       <!-- HERO -->
       <section class="hero">
         <div class="hero-logo-wrapper">
-          <!-- Make sure you uploaded sleipnir-logo.png into the repo root -->
+          <!-- Make sure sleipnir-logo.png is uploaded in the repo root -->
           <img src="sleipnir-logo.png" alt="Sleipnir Transport Logistics logo" />
         </div>
 
-        <div class="hero-kicker">
-          <span class="tag">Household Goods Moving</span>
-          <span>From a Pennsylvania hub to the rest of the U.S.</span>
-        </div>
+        <div class="hero-kicker">Household goods moves from a Pennsylvania hub to the rest of the U.S.</div>
 
         <h1>Sleipnir Transport Logistics</h1>
         <p class="hero-sub">
-          Long-distance household moving with a focus on care, coordination, and communication.
-          Operating from a Pennsylvania hub and serving the contiguous 48 states as well as Alaska.
-          Your belongings are kept in their own clearly labeled space and handled with respect at every step.
+          Long-distance household moving with a focus on care, clear communication, and steady planning.
+          Serving the contiguous 48 states and Alaska, with each customer’s belongings kept in their own
+          clearly organized space from pickup through delivery.
         </p>
 
         <div class="hero-actions">
@@ -388,9 +321,7 @@
         </div>
 
         <div class="hero-meta">
-          <span class="hero-chip">Nationwide long-distance routes</span>
-          <span class="hero-chip">Household goods only</span>
-          <span class="hero-chip">Clear, direct communication</span>
+          Routes across the lower 48 & Alaska • Pennsylvania-based operations • Household goods only
         </div>
       </section>
 
@@ -398,12 +329,13 @@
       <section class="section">
         <h2>About Sleipnir</h2>
         <p>
-          Sleipnir Transport Logistics is built around long-distance household moves,
-          with operations centered in Pennsylvania and routes reaching across the contiguous 48 states and Alaska.
+          Sleipnir Transport Logistics is built around long-distance household moves, not quick local runs.
+          With operations centered in Pennsylvania and routes reaching across the contiguous 48 states and Alaska,
+          the focus is on moving families and their belongings safely and efficiently.
         </p>
         <p>
-          The focus is simple: move families and their belongings safely and efficiently, keep people informed,
-          and treat every shipment as if it were our own. No drama, no games, just straight answers and honest work.
+          The approach is straightforward: communicate honestly, handle items with respect, and keep each move
+          as organized and predictable as possible.
         </p>
       </section>
 
@@ -411,25 +343,25 @@
       <section class="section">
         <h2>What We Offer</h2>
         <div class="grid-3">
-          <div class="mini-card">
+          <div class="card">
             <h3>Long-Distance Household Moves</h3>
             <p>
-              State-to-state and cross-country moves for homes and apartments,
-              with proper protection, loading, and secure transport from origin to destination.
+              State-to-state and cross-country household moves for homes and apartments,
+              with proper padding, loading, and secure transport from origin to destination.
             </p>
           </div>
-          <div class="mini-card">
+          <div class="card">
             <h3>Separate, Organized Space</h3>
             <p>
-              Your household goods are kept in their own clearly identified space with labeling and structure,
-              not loosely mixed in with random freight, so items stay organized and accounted for.
+              Your belongings are kept in their own clearly identified space with structured loading and labeling,
+              rather than being treated like random freight, so items stay accounted for.
             </p>
           </div>
-          <div class="mini-card">
-            <h3>Secure Storage When Needed</h3>
+          <div class="card">
+            <h3>Secure Storage Options</h3>
             <p>
-              If timing doesn’t line up, safe and secure storage options are available,
-              including climate-controlled environments when requested, to protect sensitive items.
+              When timing doesn’t line up, safe and secure storage is available, including climate-controlled
+              environments upon request for items that need extra protection.
             </p>
           </div>
         </div>
@@ -440,20 +372,20 @@
         <h2>Where We Run</h2>
         <ul class="list">
           <li>
-            <span class="list-bullet"></span>
+            <span class="bullet"></span>
             <span>Primary operational hub in Pennsylvania, serving nearby regions and beyond.</span>
           </li>
           <li>
-            <span class="list-bullet"></span>
+            <span class="bullet"></span>
             <span>Coverage across the entire contiguous 48 United States.</span>
           </li>
           <li>
-            <span class="list-bullet"></span>
+            <span class="bullet"></span>
             <span>Service available to and from Alaska with planned long-distance routing.</span>
           </li>
           <li>
-            <span class="list-bullet"></span>
-            <span>Straightforward planning for moves that need extra coordination, staging, or storage.</span>
+            <span class="bullet"></span>
+            <span>Support for moves that require staging, storage, or careful timing between locations.</span>
           </li>
         </ul>
       </section>
@@ -463,7 +395,8 @@
         <h2>Contact & Move Details</h2>
         <p>
           To start planning a move, share your origin, destination, rough timing, and a sense of your household size.
-          From there, we’ll talk through options, timing, and what it looks like to get your belongings safely from point A to point B.
+          From there, we’ll talk through what the move looks like and what it will take to get your belongings from
+          point A to point B in a controlled, organized way.
         </p>
         <div class="contact-grid">
           <div class="contact-box">
