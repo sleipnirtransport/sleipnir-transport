@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <title>Sleipnir Transport Logistics | Long-Distance Moving</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sleipnir Transport Logistics provides reliable long-distance household moving and secure storage from a Pennsylvania hub to the 48 states and Alaska." />
+  <meta name="description" content="Sleipnir Transport Logistics provides reliable long-distance household moving and secure storage from a Pennsylvania hub to the contiguous 48 states and Alaska." />
   <style>
     :root {
-      --bg: #39412A;       /* OD green base */
+      --bg: #10140f;       /* dark OD-style base */
       --panel: #181f16;    /* darker panel */
       --accent: #c2a878;   /* coyote tan */
       --text-main: #f5f5f5;
@@ -25,7 +25,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      background: #050605; /* reads black with a hint of OD */
       color: var(--text-main);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -259,6 +259,57 @@
       color: var(--text-main);
     }
 
+    /* FORM STYLES */
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    label {
+      font-size: 0.78rem;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 7px 8px;
+      border-radius: 8px;
+      border: 1px solid #2c3327;
+      background: #111711;
+      color: var(--text-main);
+      font-size: 0.8rem;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
     footer {
       margin-top: 24px;
       font-size: 0.74rem;
@@ -282,6 +333,9 @@
       .contact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
@@ -294,7 +348,7 @@
           <span class="pill-dot"></span>
           <span>Long-distance household moving</span>
         </div>
-        <span>Pennsylvania Hub • Serving All 50 States</span>
+        <span>Pennsylvania hub • Contiguous 48 & Alaska</span>
       </div>
     </div>
 
@@ -306,26 +360,112 @@
           <img src="sleipnir-logo.png" alt="Sleipnir Transport Logistics logo" />
         </div>
 
+        <div class="hero-kicker">Household goods moves from a Pennsylvania hub to the rest of the U.S.</div>
+
         <h1>Sleipnir Transport Logistics</h1>
         <p class="hero-sub">
-          Long-distance household moving with a focus on care, clear communication, and steady planning from pickup through delivery.
+          Long-distance household moving with a focus on care, clear communication, and steady planning.
+          Serving the contiguous 48 states and Alaska, with each customer’s belongings kept in their own
+          clearly organized space from pickup through delivery.
         </p>
 
         <div class="hero-actions">
           <a href="tel:19085664973" class="btn-primary">Call (908) 566-4973</a>
-          <a href="mailto:info@sleipnir-transport.com" class="btn-outline">Email for a Move Quote</a>
+          <a href="#quote" class="btn-outline">Request a Move Quote</a>
         </div>
 
         <div class="hero-meta">
-         • Pennsylvania-based operations • Household goods only
+          Routes across the lower 48 & Alaska • Pennsylvania-based operations • Household goods only
         </div>
+      </section>
+
+      <!-- QUOTE FORM -->
+      <section class="section" id="quote">
+        <h2>Request a Move Quote</h2>
+        <p>
+          Share a few details about your move and we’ll follow up with next steps and numbers.
+        </p>
+
+        <form action="mailto:info@sleipnir-transport.com" method="POST" enctype="text/plain">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input id="name" name="Full Name" type="text" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" name="Phone" type="tel" placeholder="(555) 123-4567" required />
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="date">Approximate Move Date</label>
+              <input id="date" name="Move Date" type="date" />
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="from">Moving From (City, State)</label>
+              <input id="from" name="Moving From" type="text" placeholder="Williamsport, PA" required />
+            </div>
+            <div class="form-group">
+              <label for="to">Moving To (City, State)</label>
+              <input id="to" name="Moving To" type="text" placeholder="Anchorage, AK / Austin, TX / etc." required />
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="home-type">Home Type</label>
+              <select id="home-type" name="Home Type">
+                <option value="">Select...</option>
+                <option>Apartment / Condo</option>
+                <option>Single-Family Home</option>
+                <option>Townhouse / Duplex</option>
+                <option>Storage Unit</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="home-size">Approximate Home Size</label>
+              <select id="home-size" name="Home Size">
+                <option value="">Select...</option>
+                <option>Studio / 1 Bedroom</option>
+                <option>2 Bedrooms</option>
+                <option>3 Bedrooms</option>
+                <option>4+ Bedrooms</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="details">Anything else we should know? (stairs, elevators, storage needs, timing, etc.)</label>
+            <textarea id="details" name="Move Details" placeholder="Tell us about your move..."></textarea>
+          </div>
+
+          <p class="form-note">
+            Submitting this will open your email with the details filled in so you can send them straight to us.
+          </p>
+
+          <div style="margin-top:10px;">
+            <button type="submit" class="btn-primary">Send Move Details</button>
+          </div>
+        </form>
       </section>
 
       <!-- ABOUT -->
       <section class="section">
         <h2>About Sleipnir</h2>
         <p>
-          Sleipnir Transport Logistics is built around long-distance household moves.With operations centered in Pennsylvania and routes reaching across 50 states focus is on moving families and their belongings safely and efficiently.
+          Sleipnir Transport Logistics is built around long-distance household moves, not quick local runs.
+          With operations centered in Pennsylvania and routes reaching across the contiguous 48 states and Alaska,
+          the focus is on moving families and their belongings safely and efficiently.
         </p>
         <p>
           The approach is straightforward: communicate honestly, handle items with respect, and keep each move
@@ -340,8 +480,15 @@
           <div class="card">
             <h3>Long-Distance Household Moves</h3>
             <p>
-              State-to-state and cross-country household moves for homes, apartments and commercial
+              State-to-state and cross-country household moves for homes and apartments,
               with proper padding, loading, and secure transport from origin to destination.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Separate, Organized Space</h3>
+            <p>
+              Your belongings are kept in their own clearly identified space with structured loading and labeling,
+              rather than being treated like random freight, so items stay accounted for.
             </p>
           </div>
           <div class="card">
@@ -360,14 +507,16 @@
         <ul class="list">
           <li>
             <span class="bullet"></span>
-            <span>Primary operational hub in Pennsylvania.</span>
+            <span>Primary operational hub in Pennsylvania, serving nearby regions and beyond.</span>
           </li>
           <li>
             <span class="bullet"></span>
-            <span>Coverage across all 50 states.</span>
+            <span>Coverage across the entire contiguous 48 United States.</span>
           </li>
           <li>
             <span class="bullet"></span>
+            <span>Service available to and from Alaska with planned long-distance routing.</span>
+          </li>
           <li>
             <span class="bullet"></span>
             <span>Support for moves that require staging, storage, or careful timing between locations.</span>
@@ -379,9 +528,8 @@
       <section class="section" id="contact">
         <h2>Contact & Move Details</h2>
         <p>
-          To start planning a move, share your origin, destination, rough timing, and a sense of your household size.
-          From there, we’ll talk through what the move looks like and what it will take to get your belongings from
-          point A to point B in a controlled, organized way.
+          To start planning a move, you can call, email, or send the quote form above.
+          Share your origin, destination, rough timing, and a sense of your household size.
         </p>
         <div class="contact-grid">
           <div class="contact-box">
