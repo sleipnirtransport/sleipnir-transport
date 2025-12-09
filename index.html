@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sleipnir Transport Logistics | Long-Distance Moving Specialists</title>
+  <title>Sleipnir Transport Logistics | Long-Distance Moving</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sleipnir Transport Logistics provides dedicated long-distance moving services from Williamsport, PA across the East Coast, Midwest, and West Coast." />
+  <meta name="description" content="Sleipnir Transport Logistics provides sharp, reliable long-distance household moving from Williamsport, PA across the East Coast, Midwest, and West Coast." />
   <style>
     :root {
       /* OD green / coyote tan / black / white palette */
-      --bg: #10140f; /* OD green */
-      --bg-alt: #181f16; 
+      --bg: #10140f;
+      --bg-alt: #181f16;
       --accent: #c2a878; /* coyote tan */
-      --accent-soft: rgba(194, 168, 120, 0.16);
+      --accent-soft: rgba(194, 168, 120, 0.15);
       --text-main: #f5f5f5;
       --text-muted: #cbd5c0;
-      --card: #050607;
       --border-subtle: rgba(163, 177, 138, 0.45);
       --radius-lg: 18px;
       --radius-full: 999px;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.7);
+      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.75);
     }
 
     * {
@@ -30,7 +29,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top, #11160f 0, #10140f 40%, #050605 70%, #000 100%);
+        radial-gradient(circle at top, #131911 0, #10140f 40%, #050605 70%, #000 100%);
       color: var(--text-main);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -42,83 +41,46 @@
     }
 
     .page {
-      max-width: 1120px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 20px 16px 60px;
+      padding: 20px 16px 50px;
     }
 
-    header {
+    .topbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 14px 18px;
-      margin-bottom: 30px;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-subtle);
-      background: linear-gradient(135deg, var(--bg-alt), #060807);
-      box-shadow: var(--shadow-soft);
-      position: sticky;
-      top: 16px;
-      z-index: 10;
-      backdrop-filter: blur(18px);
+      background: rgba(8, 10, 7, 0.96);
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #000;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .logo-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .brand-title {
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      font-size: 0.95rem;
+    .topbar span.strong {
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .brand-sub {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .header-contact {
+    .topbar-contact {
       display: flex;
-      align-items: center;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 8px;
       justify-content: flex-end;
-      font-size: 0.85rem;
-      color: var(--text-muted);
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
+      padding: 3px 9px;
       border-radius: var(--radius-full);
-      background: rgba(10, 12, 9, 0.96);
-      border: 1px solid rgba(163, 177, 138, 0.7);
+      background: rgba(7, 9, 6, 0.94);
+      border: 1px solid var(--border-subtle);
     }
 
     .pill-dot {
@@ -126,97 +88,95 @@
       height: 8px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
     }
 
-    .btn-primary {
+    .btn-primary,
+    .btn-outline {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       padding: 8px 16px;
       border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
       background: radial-gradient(circle at top left, var(--accent), #b0895e);
       color: #050505;
-      font-weight: 600;
-      font-size: 0.9rem;
       border: none;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
       transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-      white-space: nowrap;
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
       filter: brightness(1.03);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
     }
 
     .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 7px 14px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(203, 213, 185, 0.7);
-      background: rgba(7, 9, 6, 0.9);
+      border: 1px solid rgba(203, 213, 185, 0.8);
+      background: transparent;
       color: var(--text-main);
-      font-size: 0.85rem;
-      cursor: pointer;
       transition: background 0.12s ease, border-color 0.12s ease;
-      white-space: nowrap;
     }
 
     .btn-outline:hover {
-      background: rgba(11, 15, 10, 0.95);
-      border-color: rgba(255, 255, 255, 0.75);
+      background: rgba(13, 17, 12, 0.96);
+      border-color: #ffffff;
     }
 
-    main {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.7fr);
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 880px) {
-      main {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .header-contact {
-        justify-content: flex-start;
-      }
-    }
+    /* HERO */
 
     .hero {
-      padding: 22px 20px;
-      border-radius: 26px;
+      margin-top: 10px;
+      padding: 28px 18px 24px;
+      border-radius: 24px;
+      border: 1px solid var(--border-subtle);
       background:
-        radial-gradient(circle at top left, rgba(194,168,120,0.25), transparent 55%),
-        linear-gradient(145deg, #131911, #080b07);
-      border: 1px solid rgba(163, 177, 138, 0.7);
+        radial-gradient(circle at top, var(--accent-soft), transparent 55%),
+        linear-gradient(145deg, #131911, #070906);
       box-shadow: var(--shadow-soft);
-      position: relative;
+      text-align: center;
+    }
+
+    .hero-logo-wrapper {
+      width: 190px;
+      height: 190px;
+      margin: 0 auto 14px;
+      border-radius: 32px;
+      background: #020202;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    .hero-logo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .hero-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       padding: 3px 10px;
       border-radius: var(--radius-full);
       font-size: 0.75rem;
-      background: rgba(10, 13, 9, 0.94);
-      border: 1px solid rgba(163,177,138,0.7);
+      background: rgba(9, 11, 7, 0.94);
+      border: 1px solid var(--border-subtle);
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .hero-kicker span.tag {
@@ -231,141 +191,57 @@
     h1 {
       font-size: clamp(1.8rem, 3vw, 2.2rem);
       line-height: 1.1;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .hero-sub {
-      font-size: 0.93rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
-      max-width: 32rem;
-      margin-bottom: 18px;
+      max-width: 36rem;
+      margin: 0 auto 16px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
 
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta-badge {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(194,168,120,0.25);
-    }
-
-    .card {
-      background: radial-gradient(circle at top, #11160f, #050605);
-      border-radius: 24px;
-      padding: 18px 18px 20px;
-      border: 1px solid rgba(163,177,138,0.7);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9);
-    }
-
-    .card-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .card-subtitle {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
+      justify-content: center;
       gap: 8px;
-      margin-bottom: 12px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
     }
 
-    .badge {
-      font-size: 0.75rem;
-      padding: 4px 9px;
+    .hero-chip {
+      padding: 3px 9px;
       border-radius: var(--radius-full);
-      border: 1px solid rgba(163,177,138,0.8);
-      background: rgba(7,10,7,0.96);
-      color: var(--text-muted);
+      border: 1px solid rgba(163, 177, 138, 0.6);
+      background: rgba(8, 10, 7, 0.96);
     }
 
-    .field-group {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    @media (max-width: 600px) {
-      .field-group {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    label {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 8px 9px;
-      border-radius: 10px;
-      border: 1px solid rgba(75,85,69,0.9);
-      background: rgba(10,13,9,0.95);
-      color: var(--text-main);
-      font-size: 0.8rem;
-      outline: none;
-    }
-
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(194,168,120,0.45);
-    }
-
-    textarea {
-      min-height: 70px;
-      resize: vertical;
-    }
-
-    .small-help {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
+    /* SECTIONS */
 
     .section {
-      margin-top: 28px;
+      margin-top: 26px;
       padding: 18px 18px 20px;
-      border-radius: 22px;
-      border: 1px solid rgba(163,177,138,0.5);
-      background: linear-gradient(135deg, #141a12, #070a06);
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(135deg, #141a12, #070906);
     }
 
     .section h2 {
       font-size: 1.1rem;
       margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .section p {
@@ -388,10 +264,10 @@
     }
 
     .mini-card {
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 12px 12px 13px;
-      background: rgba(8,10,7,0.98);
-      border: 1px solid rgba(75,85,69,0.9);
+      background: rgba(8, 10, 7, 0.98);
+      border: 1px solid rgba(75, 85, 69, 0.9);
     }
 
     .mini-card h3 {
@@ -401,13 +277,14 @@
 
     .mini-card p {
       font-size: 0.78rem;
+      color: var(--text-muted);
       margin-bottom: 0;
     }
 
     .list {
       list-style: none;
       padding-left: 0;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
     }
 
@@ -426,20 +303,37 @@
       flex-shrink: 0;
     }
 
-    .regions-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-      font-size: 0.75rem;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
     }
 
-    .regions-row span {
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(9,11,7,0.96);
-      border: 1px dashed rgba(163,177,138,0.7);
+    @media (max-width: 700px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .topbar-contact {
+        justify-content: flex-start;
+      }
+    }
+
+    .contact-box {
+      border-radius: 14px;
+      padding: 10px 11px;
+      background: rgba(8, 10, 7, 0.96);
+      border: 1px solid rgba(75, 85, 69, 0.9);
+      font-size: 0.85rem;
       color: var(--text-muted);
+    }
+
+    .contact-box strong {
+      color: #f5f5f5;
     }
 
     footer {
@@ -458,256 +352,135 @@
 </head>
 <body>
   <div class="page">
-    <header>
-      <div class="brand">
-        <div class="logo-mark">
-          <!-- Upload sleipnir-logo.png to the repo root -->
-          <img src="sleipnir-logo.png" alt="Sleipnir Transport Logistics logo" />
-        </div>
-        <div>
-          <div class="brand-title">SLEIPNIR TRANSPORT LOGISTICS</div>
-          <div class="brand-sub">Long-Distance Moving • Williamsport, PA</div>
-        </div>
-      </div>
-      <div class="header-contact">
+    <div class="topbar">
+      <span class="strong">Sleipnir Transport Logistics</span>
+      <div class="topbar-contact">
         <div class="pill">
           <span class="pill-dot"></span>
           <span>Now booking long-distance moves</span>
         </div>
-        <a href="tel:19085664973" class="btn-outline">Call: (908) 566-4973</a>
-        <a href="mailto:info@sleipnir-transport.com" class="btn-primary">Request a Quote</a>
+        <span>Williamsport, PA</span>
       </div>
-    </header>
+    </div>
 
     <main>
-      <!-- HERO / LEFT SIDE -->
+      <!-- HERO -->
       <section class="hero">
+        <div class="hero-logo-wrapper">
+          <!-- Make sure you uploaded sleipnir-logo.png into the repo root -->
+          <img src="sleipnir-logo.png" alt="Sleipnir Transport Logistics logo" />
+        </div>
+
         <div class="hero-kicker">
-          <span class="tag">Dedicated Long-Distance Movers</span>
+          <span class="tag">Long-Distance Household Moving</span>
           <span>East Coast • Midwest • West Coast</span>
         </div>
 
-        <h1>Sharp, Reliable Long-Distance Moving — Done the Right Way</h1>
+        <h1>Sleipnir Transport Logistics</h1>
         <p class="hero-sub">
-          Sleipnir Transport Logistics specializes in long-distance household moves from Williamsport, PA and beyond.
-          We coordinate everything end-to-end so your belongings travel safely and on time — whether you’re moving one state over or coast to coast.
+          Sharp, reliable long-distance moving based out of Williamsport, PA.
+          Dedicated to getting your household safely from A to B with clear communication and professional crews.
         </p>
 
         <div class="hero-actions">
-          <a href="#quote" class="btn-primary">Start My Long-Distance Quote</a>
-          <a href="tel:19085664973" class="btn-outline">Talk to a move coordinator</a>
+          <a href="tel:19085664973" class="btn-primary">Call (908) 566-4973</a>
+          <a href="mailto:info@sleipnir-transport.com" class="btn-outline">Email for a Quote</a>
         </div>
 
         <div class="hero-meta">
-          <span><span class="hero-meta-badge"></span> Dedicated truck & vetted partner network</span>
-          <span>Licensed & insured long-distance HHG</span>
-          <span>Personal support from planning to delivery</span>
+          <span class="hero-chip">Dedicated truck options</span>
+          <span class="hero-chip">Vetted partner carriers</span>
+          <span class="hero-chip">Long-distance HHG focus</span>
         </div>
       </section>
 
-      <!-- FORM / RIGHT SIDE -->
-      <aside class="card" id="quote">
-        <div class="card-title">Get Your Long-Distance Moving Quote</div>
-        <div class="card-subtitle">Share a few details and our team will follow up with a custom estimate.</div>
+      <!-- ABOUT -->
+      <section class="section">
+        <h2>About Sleipnir</h2>
+        <p>
+          Sleipnir Transport Logistics is built around long-distance household moves, not quick local runs.
+          From Williamsport, PA, we serve customers moving across the East Coast, into the Midwest, and out toward the West Coast.
+        </p>
+        <p>
+          You get clear expectations, a professional crew, and a straightforward experience from first contact
+          through final delivery. No games, no mystery charges.
+        </p>
+      </section>
 
-        <div class="badge-row">
-          <span class="badge">Full-house & apartment moves</span>
-          <span class="badge">Dedicated or shared truck options</span>
-          <span class="badge">East Coast • Midwest • West Coast</span>
+      <!-- SERVICES -->
+      <section class="section">
+        <h2>What We Do</h2>
+        <div class="grid-3">
+          <div class="mini-card">
+            <h3>Long-Distance Household Moves</h3>
+            <p>
+              Full-home and apartment moves with proper padding, loading, and transport, designed for interstate and multi-day routes.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>Dedicated or Shared Loads</h3>
+            <p>
+              Depending on your budget and timing, we can run dedicated trucks or coordinated shared loads while keeping your items protected.
+            </p>
+          </div>
+          <div class="mini-card">
+            <h3>Coordinated Partner Network</h3>
+            <p>
+              When needed, we use vetted partner carriers and crews that meet Sleipnir standards for service and communication.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <form>
-          <div class="field-group">
-            <div>
-              <label for="name">Full Name</label>
-              <input id="name" type="text" placeholder="Jane Doe" />
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" type="tel" placeholder="(555) 123-4567" />
-            </div>
+      <!-- COVERAGE -->
+      <section class="section">
+        <h2>Where We Run</h2>
+        <ul class="list">
+          <li>
+            <span class="list-bullet"></span>
+            <span>Originating from Pennsylvania, especially around Williamsport and surrounding regions.</span>
+          </li>
+          <li>
+            <span class="list-bullet"></span>
+            <span>Routes up and down the East Coast.</span>
+          </li>
+          <li>
+            <span class="list-bullet"></span>
+            <span>Connections into key Midwest cities and corridors.</span>
+          </li>
+          <li>
+            <span class="list-bullet"></span>
+            <span>Longer hauls toward Western destinations as scheduled and coordinated.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <h2>Contact & Booking</h2>
+        <p>
+          Ready to talk through a move or get numbers on a route? Reach out with your origin, destination, rough dates,
+          and a sense of your household size, and we’ll give you a straight answer on options.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <strong>Call</strong><br />
+            (908) 566-4973
           </div>
-
-          <div class="field-group">
-            <div>
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" />
-            </div>
-            <div>
-              <label for="date">Target Move Date</label>
-              <input id="date" type="date" />
-            </div>
+          <div class="contact-box">
+            <strong>Email</strong><br />
+            info@sleipnir-transport.com
           </div>
-
-          <div class="field-group">
-            <div>
-              <label for="from">Moving From (City, State)</label>
-              <input id="from" type="text" placeholder="Williamsport, PA" />
-            </div>
-            <div>
-              <label for="to">Moving To (City, State)</label>
-              <input id="to" type="text" placeholder="Charlotte, NC" />
-            </div>
-          </div>
-
-          <div class="field-group">
-            <div>
-              <label for="home">Home Type</label>
-              <select id="home">
-                <option value="">Select...</option>
-                <option>Apartment / Condo</option>
-                <option>Single-Family Home</option>
-                <option>Townhouse</option>
-                <option>Storage Unit</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div>
-              <label for="size">Approx. Home Size</label>
-              <select id="size">
-                <option value="">Select...</option>
-                <option>Studio / 1 Bedroom</option>
-                <option>2 Bedrooms</option>
-                <option>3 Bedrooms</option>
-                <option>4+ Bedrooms</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label for="details">Anything special we should know? (stairs, elevators, large items, flexibility, etc.)</label>
-            <textarea id="details" placeholder="Tell us about your move..."></textarea>
-          </div>
-
-          <p class="small-help">
-            A coordinator will review your details and reach out by phone or email to confirm inventory and provide a binding estimate.
-          </p>
-
-          <button type="submit" class="btn-primary" style="width:100%; margin-top:10px;">
-            Submit My Info
-          </button>
-        </form>
-      </aside>
+        </div>
+      </section>
     </main>
-
-    <!-- ABOUT / SERVICES -->
-    <section class="section">
-      <h2>Long-Distance Moving, Done the Right Way</h2>
-      <p>
-        Sleipnir Transport Logistics is a long-distance moving specialist based in Williamsport, PA.
-        We combine on-the-road expertise with a vetted national partner network so your household goods are handled with care from door to door.
-      </p>
-
-      <div class="grid-3">
-        <div class="mini-card">
-          <h3>Dedicated Long-Distance Moves</h3>
-          <p>
-            For full-home relocations that need clear timing and extra peace of mind, we offer dedicated truck options so your items don’t get mixed with other shipments.
-          </p>
-        </div>
-        <div class="mini-card">
-          <h3>Nationwide Partner Network</h3>
-          <p>
-            When your move stretches across regions, we coordinate trusted partners on the East Coast, Midwest, and West Coast to keep everything on schedule.
-          </p>
-        </div>
-        <div class="mini-card">
-          <h3>Personal Customer Support</h3>
-          <p>
-            From your first quote to final walkthrough, you’ll have direct communication with our team for updates, timing, and any questions along the way.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section">
-      <h2>How Your Long-Distance Move Works</h2>
-      <p>We keep the process simple, clear, and transparent from the first call to final delivery.</p>
-
-      <div class="grid-3">
-        <div class="mini-card">
-          <h3>1. Share Your Move Details</h3>
-          <p>
-            Tell us where you’re moving from, where you’re headed, and what you’re taking. We can collect inventory by form, photos, or a quick video walkthrough.
-          </p>
-        </div>
-        <div class="mini-card">
-          <h3>2. Get a Custom Estimate</h3>
-          <p>
-            We provide a long-distance quote tailored to your inventory, distance, timing, and service level. No surprise charges or hidden add-ons.
-          </p>
-        </div>
-        <div class="mini-card">
-          <h3>3. We Coordinate the Entire Trip</h3>
-          <p>
-            Our team plans the route, schedules crews, and aligns timing so your belongings arrive when you need them, whether it’s one state away or across the country.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- COVERAGE / REGIONS -->
-    <section class="section">
-      <h2>Where We Move</h2>
-      <p>
-        While we’re proudly based in Williamsport, PA, our long-distance household moves span multiple regions:
-      </p>
-      <div class="regions-row">
-        <span>From Pennsylvania across the East Coast</span>
-        <span>To / from Midwest hubs</span>
-        <span>To / from West Coast destinations</span>
-        <span>One-way or round-trip long-distance moves</span>
-      </div>
-    </section>
-
-    <!-- WHY CHOOSE US -->
-    <section class="section">
-      <h2>Why Families Choose Sleipnir Transport Logistics</h2>
-      <ul class="list">
-        <li>
-          <span class="list-bullet"></span>
-          <span><strong>Long-distance focused:</strong> We’re built around interstate moves, not short local jobs.</span>
-        </li>
-        <li>
-          <span class="list-bullet"></span>
-          <span><strong>Direct communication:</strong> Talk to real people who know your move, not a call center.</span>
-        </li>
-        <li>
-          <span class="list-bullet"></span>
-          <span><strong>Curated partners only:</strong> We work with movers who prioritize care, professionalism, and customer service.</span>
-        </li>
-        <li>
-          <span class="list-bullet"></span>
-          <span><strong>Flexible options:</strong> Dedicated truck or more economical shared-load options depending on your needs and budget.</span>
-        </li>
-        <li>
-          <span class="list-bullet"></span>
-          <span><strong>End-to-end coordination:</strong> One team overseeing your move from the first inventory to the last box off the truck.</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- CONTACT / CTA -->
-    <section class="section" id="contact">
-      <h2>Ready to Start Planning Your Move?</h2>
-      <p>
-        Whether you’re just exploring options or ready to lock in dates, we’re here to help you plan a smooth, safe long-distance move.
-      </p>
-      <div class="hero-actions" style="margin-top:10px;">
-        <a href="tel:19085664973" class="btn-primary">Call (908) 566-4973</a>
-        <a href="mailto:info@sleipnir-transport.com" class="btn-outline">Email info@sleipnir-transport.com</a>
-      </div>
-    </section>
 
     <footer>
       <div>© <span id="year"></span> Sleipnir Transport Logistics • Williamsport, PA • Long-Distance Household Moving</div>
-      <div>Phone: <a href="tel:19085664973">(908) 566-4973</a> • Email: <a href="mailto:info@sleipnir-transport.com">info@sleipnir-transport.com</a></div>
     </footer>
   </div>
 
   <script>
-    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
