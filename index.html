@@ -84,10 +84,23 @@
 }
 
 
-.company-address,
-.company-legal {
-  margin-bottom: 4px;
+..company-address {
+  text-align: center;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
+
+.addr-line1,
+.addr-line2 {
+  display: inline;
+}
+
+/* add a space between line1 and line2 on desktop */
+.addr-line1::after {
+  content: " ";
+}
+
 
 
     /* HERO SECTION */
@@ -266,6 +279,14 @@ textarea {
   .company-line2 {
     display: block;   /* stack on mobile */
   }
+  .addr-line1,
+  .addr-line2 {
+    display: block;   /* now they stack on mobile */
+  }
+
+  .addr-line1::after {
+    content: "";      /* remove the extra space on mobile */
+  }
 
   .topbar-right {
     align-items: flex-start;
@@ -396,6 +417,10 @@ textarea {
   <span class="line2">Transport Logistics LLC</span>
 </div>
 
-  <div class="company-address">1275 Glenlivet Drive, Suite 100, Allentown, PA 18106</div>
+<div class="company-address">
+  <span class="addr-line1">1275 Glenlivet Drive, Suite 100</span>
+  <span class="addr-line2">Allentown, PA 18106</span>
+</div>
+
   <div class="company-legal">MC 1179452 • DOT 4498796</div>
 </div>
