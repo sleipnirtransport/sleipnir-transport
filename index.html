@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,8 +30,30 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+  <!-- Schema (Moving Company) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "name": "Sleipnir Transport Logistics",
+    "image": "https://sleipnir-transport.com/og-image.png",
+    "url": "https://sleipnir-transport.com",
+    "telephone": "+1-908-566-4973",
+    "@id": "https://sleipnir-transport.com/#organization",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1275 Glenlivet Drive, Suite 100",
+      "addressLocality": "Allentown",
+      "addressRegion": "PA",
+      "postalCode": "18106",
+      "addressCountry": "US"
+    },
+    "areaServed": "United States",
+    "description": "Long-distance moving company specializing in state-to-state and cross-country household moves. Owner-operated, licensed, and committed to reliable, professional relocation services."
+  }
+  </script>
 
-   <style>
+  <style>
     /* COLOR PALETTE — OD + Gold */
     :root {
       --bg: #1A2112;              /* OD background */
@@ -41,11 +65,7 @@
       --border: #2B3422;
       --radius-lg: 20px;
       --radius-md: 12px;
-
-.hero-logo-banner {
-  position: relative;
-  z-index: 2;   /* make sure the logo stays above the gradient */
-}
+    }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -66,6 +86,8 @@
 
     /* HERO LOGO */
     .hero-logo-banner {
+      position: relative;
+      z-index: 2;
       width: 100%;
       max-width: 480px;   /* desktop size */
       height: auto;
@@ -126,6 +148,12 @@
       justify-content: center;
       margin-bottom: 10px;
       flex-wrap: wrap;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 8px;
     }
 
     /* BUTTONS – GOLD */
@@ -269,57 +297,41 @@
       margin-top: 4px;
     }
 
-    /* DESKTOP TUNING – slightly lighter panels */
-   /* DESKTOP — MORE GOLD ACCENTS */
-@media (min-width: 721px) {
+    /* DESKTOP — MORE GOLD ACCENTS */
+    @media (min-width: 721px) {
+      :root {
+        --bg: #1A2112;
+        --panel: #2A3320;          /* slightly brighter panel for gold contrast */
+      }
 
-  :root {
-    --bg: #1A2112;
-    --panel: #2A3320;          /* slightly brighter panel for gold contrast */
-  }
+      .section {
+        border: 2px solid var(--accent-gold);
+      }
 
-  /* Stronger gold section borders */
-  .section {
-    border: 2px solid var(--accent-gold);
-  }
+      .hero {
+        border: 2px solid var(--accent-gold);
+      }
 
-  /* Hero border stronger */
-  .hero {
-    border: 2px solid var(--accent-gold);
-  }
+      .offer-card {
+        border: 2px solid var(--accent-gold);
+      }
 
-  /* Offer cards: sharper gold border */
-  .offer-card {
-    border: 2px solid var(--accent-gold);
-  }
+      .btn-primary {
+        background: var(--accent-gold);
+        color: #111;
+        box-shadow: 0 0 8px rgba(194, 168, 120, 0.35);
+      }
 
-  /* Make gold headings pop more */
-  .section h2,
-  .offer-card h3,
-  .company-name .line1,
-  .company-name .line2 {
-    color: var(--accent-gold);
-  }
+      .btn-outline {
+        border: 2px solid var(--accent-gold);
+        color: var(--accent-gold);
+      }
 
-  /* Buttons more gold and more visible */
-  .btn-primary {
-    background: var(--accent-gold);
-    color: #111;
-    box-shadow: 0 0 8px rgba(194, 168, 120, 0.35);
-  }
-
-  .btn-outline {
-    border: 2px solid var(--accent-gold);
-    color: var(--accent-gold);
-  }
-
-  /* Company info block more gold-focused */
-  .company-info {
-    border: 2px solid var(--accent-gold);
-    color: var(--accent-gold);
-  }
-}
-
+      .company-info {
+        border: 2px solid var(--accent-gold);
+        color: var(--accent-gold);
+      }
+    }
 
     /* MOBILE */
     @media (max-width: 720px) {
@@ -345,7 +357,6 @@
       }
     }
   </style>
-
 </head>
 
 <body>
@@ -353,46 +364,43 @@
 
     <!-- HERO -->
     <section class="hero">
-  <img class="hero-logo-banner" src="3128ae4f-93be-4680-bfd1-c41225af33f5.png" alt="Sleipnir Transport Logistics logo" />
-  <div class="hero-actions">
-    <a href="tel:19085664973" class="btn-primary">Call (908) 566-4973</a>
-    <a href="#quote" class="btn-outline">Request a Move Quote</a>
-  </div>
+      <img class="hero-logo-banner" src="3128ae4f-93be-4680-bfd1-c41225af33f5.png" alt="Sleipnir Transport Logistics logo" />
 
-  <div class="hero-meta">
-   
-  </div>
-</section>
+      <div class="hero-actions">
+        <a href="tel:19085664973" class="btn-primary">Call (908) 566-4973</a>
+        <a href="#quote" class="btn-outline">Request a Move Quote</a>
+      </div>
 
-    
-<!-- ABOUT -->
- <section class="section">
-  <h2>About Sleipnir</h2>
+      <div class="hero-meta">
+        Named for the eight-legged steed of legend, focused on safe, steady passage—not rushed chaos.
+      </div>
+    </section>
 
-  <p>
-    Sleipnir Transport Logistics is an owner-operated long-distance moving company based in Pennsylvania and serving all 50 states. We specialize in state-to-state and cross-country household moves, focusing on organized loading, secure transport, and steady communication from the first call to final delivery.
-  </p>
+    <!-- ABOUT -->
+    <section class="section">
+      <h2>About Sleipnir</h2>
 
-  <p>
-    Our name comes from <strong>Sleipnir</strong>, the legendary eight-legged horse of Norse myth — known as the swiftest, most loyal, and most trustworthy steed ever to travel the realms. Sleipnir carried its rider safely across great distances and difficult paths, and we carry that same philosophy into our work: speed without rushing, strength without chaos, and absolute reliability from origin to destination.
-  </p>
+      <p>
+        Sleipnir Transport Logistics is an owner-operated long-distance moving company based in Pennsylvania and serving all 50 states. We specialize in state-to-state and cross-country household moves, focusing on organized loading, secure transport, and steady communication from the first call to final delivery.
+      </p>
 
-  <p>
-    The symbol we use, often called the “Viking compass,” represents guidance, protection, and safe passage through any conditions. It reflects our approach to long-distance moving: the route may be long, but the journey should feel steady, planned, and protected.
-  </p>
+      <p>
+        Our name comes from <strong>Sleipnir</strong>, the legendary eight-legged horse of Norse myth — known as the swiftest, most loyal, and most trustworthy steed ever to travel the realms. Sleipnir carried its rider safely across great distances and difficult paths, and we carry that same philosophy into our work: speed without rushing, strength without chaos, and absolute reliability from origin to destination.
+      </p>
 
-  <p>
-    Rather than operating like a large van line or dispatching random crews, Sleipnir is hands-on and personal. Your belongings are padded, wrapped, labeled, and accounted for so nothing is misplaced or mishandled. You get direct communication and a single point of contact throughout the entire move.
-  </p>
+      <p>
+        The symbol we use, often called the “Viking compass,” represents guidance, protection, and safe passage through any conditions. It reflects our approach to long-distance moving: the route may be long, but the journey should feel steady, planned, and protected.
+      </p>
 
-  <p>
-    Our home hub is in Pennsylvania, and we regularly serve long-distance moves departing from or arriving to PA, NJ, NY, MD, VA, and the surrounding East Coast. Whether you're relocating out of state, crossing the country, or planning a strategic move with storage needs, Sleipnir brings reliability, honesty, and professional handling to every mile.
-  </p>
+      <p>
+        Rather than operating like a large van line or dispatching random crews, Sleipnir is hands-on and personal. Your belongings are padded, wrapped, labeled, and accounted for so nothing is misplaced or mishandled. You get direct communication and a single point of contact throughout the entire move.
+      </p>
 
-</section>
+      <p>
+        Our home hub is in Pennsylvania, and we regularly serve long-distance moves departing from or arriving to PA, NJ, NY, MD, VA, and the surrounding East Coast. Whether you're relocating out of state, crossing the country, or planning a strategic move with storage needs, Sleipnir brings reliability, honesty, and professional handling to every mile.
+      </p>
+    </section>
 
-
-    
     <!-- QUOTE FORM -->
     <section class="section" id="quote">
       <h2>Request a Move Quote</h2>
@@ -444,41 +452,44 @@
     <section class="section">
       <h2>What We Offer</h2>
 
-     <div class="offer-card">
-  <h3>Long-Distance Household Moves</h3>
-  <p>
-    Licensed and insured long-distance household moves with full padding, wrapping, and organized loading. We handle
-    state-to-state relocation, East Coast moves, and cross-country routes, keeping your household in its own clearly
-    labeled and accounted-for space from pickup through delivery.
-  </p>
-</div>
+      <div class="offer-grid">
+        <div class="offer-card">
+          <h3>Long-Distance Household Moves</h3>
+          <p>
+            Licensed and insured long-distance household moves with full padding, wrapping, and organized loading. We handle
+            state-to-state relocation, East Coast moves, and cross-country routes, keeping your household in its own clearly
+            labeled and accounted-for space from pickup through delivery.
+          </p>
+        </div>
 
+        <div class="offer-card">
+          <h3>Secure Storage Options</h3>
+          <p>
+            Short-term and long-term storage options to support your move, including secure and when needed climate-controlled
+            environments for sensitive or fragile items. Ideal for staged moves, gap time between closings, or extended
+            long-distance relocation plans.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <p>State-to-stat
- <div class="offer-card">
-  <h3>Secure Storage Options</h3>
-  <p>
-    Short-term and long-term storage options to support your move, including secure and when needed climate-controlled
-    environments for sensitive or fragile items. Ideal for staged moves, gap time between closings, or extended
-    long-distance relocation plans.
-  </p>
-</div>
+    <!-- COMPANY INFO BOTTOM BLOCK -->
+    <div class="company-info">
+      <div class="company-name">
+        <span class="line1">Sleipnir</span>
+        <span class="line2">Transport Logistics LLC</span>
+      </div>
 
-</div>
-      
+      <div class="company-address">
+        <span class="addr-line1">1275 Glenlivet Drive, Suite 100</span>
+        <span class="addr-line2">Allentown, PA 18106</span>
+      </div>
+
+      <div class="company-legal">MC 1179452 • DOT 4498796</div>
+    </div>
+
+  </div>
+
+  <!-- SEO Boost: Sleipnir Transport Logistics offers long distance moving, interstate relocation services, cross country moving, out of state household moving, Pennsylvania long distance movers, climate controlled storage, 50 state household moving services, and owner-operated professional relocation services. -->
 </body>
 </html>
-<!-- COMPANY INFO BOTTOM BLOCK -->
-<div class="company-info">
-  <div class="company-name">
-  <span class="line1">Sleipnir</span>
-  <span class="line2">Transport Logistics LLC</span>
-</div>
-
-<div class="company-address">
-  <span class="addr-line1">1275 Glenlivet Drive, Suite 100</span>
-  <span class="addr-line2">Allentown, PA 18106</span>
-</div>
-
-  <div class="company-legal">MC 1179452 • DOT 4498796</div>
-</div>
