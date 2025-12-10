@@ -18,6 +18,33 @@
       --radius-lg: 20px;
       --radius-md: 12px;
     }
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;         /* size of the gradient */
+  height: 480px;
+  background: radial-gradient(
+    circle,
+    rgba(194, 168, 120, 0.35) 0%,   /* center soft gold */
+    rgba(194, 168, 120, 0.06) 50%,  /* fade outward */
+    rgba(0, 0, 0, 0) 100%           /* fully transparent edges */
+  );
+  z-index: 0;
+  filter: blur(18px);
+}
+
+.hero-logo-banner {
+  position: relative;
+  z-index: 2;   /* make sure the logo stays above the gradient */
+}
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -271,7 +298,6 @@
   .company-name .line1,
   .company-name .line2 {
     color: var(--accent-gold);
-    text-shadow: 0 0 4px rgba(194, 168, 120, 0.4);
   }
 
   /* Buttons more gold and more visible */
