@@ -32,6 +32,20 @@
   display: block;
   margin: 0 auto 18px;
 }
+.hero-logo-banner {
+  width: 100%;
+  max-width: 480px;   /* desktop size */
+  height: auto;
+  display: block;
+  margin: 0 auto 18px;
+}
+
+/* mobile adjustments */
+@media (max-width: 720px) {
+  .hero-logo-banner {
+    max-width: 320px;
+  }
+}
 
     a { color: inherit; text-decoration: none; }
 
@@ -327,7 +341,7 @@ textarea {
 
     <!-- HERO -->
     <section class="hero">
-  <img class="hero-logo-banner" src="sleipnir-banner.png" alt="Sleipnir Transport Logistics logo" />
+  <img class="hero-logo-banner" src="sleipnir-gold.png" alt="Sleipnir Transport Logistics logo" />
   <div class="hero-actions">
     <a href="tel:19085664973" class="btn-primary">Call (908) 566-4973</a>
     <a href="#quote" class="btn-outline">Request a Move Quote</a>
