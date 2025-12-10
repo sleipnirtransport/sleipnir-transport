@@ -212,10 +212,30 @@
     }
 
     /* MOBILE */
-    @media(max-width: 720px) {
-      .grid-3 { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 720px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar-right {
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding: 20px 16px;
+  }
+
+  .logo-box {
+    width: 170px;
+    height: 170px;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+  }
+}
+
   </style>
 </head>
 
