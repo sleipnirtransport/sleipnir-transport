@@ -17,29 +17,6 @@
       --border: #2B3422;
       --radius-lg: 20px;
       --radius-md: 12px;
-    }
-.hero {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 480px;         /* size of the gradient */
-  height: 480px;
-  background: radial-gradient(
-    circle,
-    rgba(194, 168, 120, 0.35) 0%,   /* center soft gold */
-    rgba(194, 168, 120, 0.06) 50%,  /* fade outward */
-    rgba(0, 0, 0, 0) 100%           /* fully transparent edges */
-  );
-  z-index: 0;
-  filter: blur(18px);
-}
 
 .hero-logo-banner {
   position: relative;
