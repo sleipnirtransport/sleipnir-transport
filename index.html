@@ -34,26 +34,26 @@
       padding: 20px 16px 50px;
     }
 
-    /* TOP BAR */
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 18px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      background: #0b0d0b;
-      margin-bottom: 22px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+  .topbar-left,
+.topbar-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
-    .topbar-title {
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+.topbar-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.topbar-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
 
     /* HERO SECTION */
     .hero {
