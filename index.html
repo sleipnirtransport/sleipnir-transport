@@ -65,12 +65,24 @@
 }
 
 .company-name {
-  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.company-line1,
+.company-line2 {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-main);
-  margin-bottom: 6px;
+  letter-spacing: 0.04em;
 }
+
+/* Desktop: keep on one line */
+.company-line1,
+.company-line2 {
+  display: inline;
+}
+
 
 .company-address,
 .company-legal {
@@ -250,6 +262,10 @@ textarea {
 .offer-grid {
   flex-direction: column;
 }
+  .company-line1,
+  .company-line2 {
+    display: block;   /* stack on mobile */
+  }
 
   .topbar-right {
     align-items: flex-start;
@@ -375,7 +391,11 @@ textarea {
 </html>
 <!-- COMPANY INFO BOTTOM BLOCK -->
 <div class="company-info">
-  <div class="company-name">Sleipnir Transport Logistics LLC</div>
+  <div class="company-name">
+  <span class="line1">Sleipnir</span>
+  <span class="line2">Transport Logistics LLC</span>
+</div>
+
   <div class="company-address">1275 Glenlivet Drive, Suite 100, Allentown, PA 18106</div>
   <div class="company-legal">MC 1179452 • DOT 4498796</div>
 </div>
