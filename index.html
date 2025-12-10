@@ -242,12 +242,57 @@
     }
 
     /* DESKTOP TUNING – slightly lighter panels */
-    @media (min-width: 721px) {
-      :root {
-        --bg: #1A2112;
-        --panel: #252F1D;
-      }
-    }
+   /* DESKTOP — MORE GOLD ACCENTS */
+@media (min-width: 721px) {
+
+  :root {
+    --bg: #1A2112;
+    --panel: #2A3320;          /* slightly brighter panel for gold contrast */
+  }
+
+  /* Stronger gold section borders */
+  .section {
+    border: 2px solid var(--accent-gold);
+  }
+
+  /* Hero border stronger */
+  .hero {
+    border: 2px solid var(--accent-gold);
+  }
+
+  /* Offer cards: sharper gold border */
+  .offer-card {
+    border: 2px solid var(--accent-gold);
+  }
+
+  /* Make gold headings pop more */
+  .section h2,
+  .offer-card h3,
+  .company-name .line1,
+  .company-name .line2 {
+    color: var(--accent-gold);
+    text-shadow: 0 0 4px rgba(194, 168, 120, 0.4);
+  }
+
+  /* Buttons more gold and more visible */
+  .btn-primary {
+    background: var(--accent-gold);
+    color: #111;
+    box-shadow: 0 0 8px rgba(194, 168, 120, 0.35);
+  }
+
+  .btn-outline {
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+  }
+
+  /* Company info block more gold-focused */
+  .company-info {
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+  }
+}
+
 
     /* MOBILE */
     @media (max-width: 720px) {
