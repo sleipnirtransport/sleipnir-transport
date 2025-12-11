@@ -53,13 +53,15 @@
   }
   </script>
 
-  <style>
+    <style>
     /* COLOR PALETTE — OD + Gold */
     :root {
-      --bg: #1A2112;              /* OD background */
+      --bg: #12170D;              /* deep OD-ish background */
       --panel: #222A1A;           /* OD panel */
       --accent-od: #2B3422;       /* tactical OD accent */
-      --accent-gold: #C2A878;     /* logo gold */
+      --accent-gold: #D1A744;     /* main gold (richer) */
+      --accent-gold-light: #E5C15A; /* highlight gold */
+      --accent-gold-dark: #A67C1D;  /* shadow gold */
       --text-main: #f5f5f5;
       --text-muted: #b5b9b4;
       --border: #2B3422;
@@ -101,9 +103,10 @@
       background: var(--panel);
       padding: 22px 20px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(194, 168, 120, 0.35); /* soft gold border */
+      border: 1px solid rgba(209, 167, 68, 0.55); /* stronger gold border */
       margin-bottom: 24px;
       overflow: hidden;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.65);
     }
 
     .section h2 {
@@ -127,12 +130,14 @@
 
     /* HERO SECTION */
     .hero {
-      background: var(--panel);
+      background: radial-gradient(circle at top, rgba(209, 167, 68, 0.12), transparent 55%) ,
+                  var(--panel);
       padding: 28px 20px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(194, 168, 120, 0.35); /* soft gold */
+      border: 1px solid rgba(209, 167, 68, 0.6); /* stronger gold */
       text-align: center;
       margin-bottom: 26px;
+      box-shadow: 0 0 22px rgba(0, 0, 0, 0.7);
     }
 
     .hero-sub {
@@ -158,22 +163,48 @@
 
     /* BUTTONS – GOLD */
     .btn-primary {
-      background: var(--accent-gold);
+      background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
       color: #111;
-      padding: 10px 18px;
+      padding: 10px 22px;
       border-radius: 999px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      border: none;
+      border: 1px solid var(--accent-gold-dark);
+      box-shadow:
+        0 0 14px rgba(209, 167, 68, 0.7),
+        0 8px 18px rgba(0, 0, 0, 0.85);
+      transition: transform 0.12s ease-out,
+                  box-shadow 0.12s ease-out,
+                  background 0.12s ease-out;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 18px rgba(229, 193, 90, 0.9),
+        0 10px 22px rgba(0, 0, 0, 0.9);
     }
 
     .btn-outline {
-      border: 1px solid var(--accent-gold);
-      padding: 10px 18px;
+      border: 2px solid var(--accent-gold);
+      padding: 10px 22px;
       border-radius: 999px;
-      color: var(--accent-gold);
+      color: var(--accent-gold-light);
       cursor: pointer;
       background: transparent;
+      font-weight: 600;
+      transition: background 0.12s ease-out,
+                  color 0.12s ease-out,
+                  transform 0.12s ease-out,
+                  box-shadow 0.12s ease-out;
+    }
+
+    .btn-outline:hover {
+      background: rgba(209, 167, 68, 0.12);
+      color: var(--accent-gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 0 12px rgba(209, 167, 68, 0.6);
     }
 
     /* WHAT WE OFFER – 2 GOLD CARDS */
@@ -187,11 +218,12 @@
 
     .offer-card {
       flex: 1;
-      background: #111711;
-      border: 1px solid rgba(194, 168, 120, 0.35); /* soft gold border */
+      background: #12170F;
+      border: 1px solid rgba(209, 167, 68, 0.7); /* sharper gold border */
       border-radius: var(--radius-md);
       padding: 14px;
       color: var(--text-muted);
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.7);
     }
 
     .offer-card h3 {
@@ -241,13 +273,27 @@
     .submit-btn {
       margin-top: 14px;
       padding: 12px 20px;
-      background: var(--accent-gold);
+      background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
       color: #000;
       border-radius: 999px;
       font-weight: 700;
       cursor: pointer;
       text-align: center;
-      border: none;
+      border: 1px solid var(--accent-gold-dark);
+      box-shadow:
+        0 0 14px rgba(209, 167, 68, 0.7),
+        0 8px 18px rgba(0, 0, 0, 0.85);
+      transition: transform 0.12s ease-out,
+                  box-shadow 0.12s ease-out,
+                  background 0.12s ease-out;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 18px rgba(229, 193, 90, 0.9),
+        0 10px 22px rgba(0, 0, 0, 0.9);
     }
 
     /* COMPANY INFO BOTTOM BLOCK */
@@ -257,9 +303,10 @@
       text-align: center;
       border-radius: var(--radius-lg);
       background: #0d120c;
-      border: 1px solid rgba(194, 168, 120, 0.35);
-      color: var(--accent-gold);
+      border: 1px solid rgba(209, 167, 68, 0.7);
+      color: var(--accent-gold-light);
       font-size: 0.85rem;
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
     }
 
     .company-name {
@@ -272,13 +319,13 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      color: var(--accent-gold);
+      color: var(--accent-gold-light);
     }
 
     .company-address {
       text-align: center;
       margin-bottom: 6px;
-      color: var(--accent-gold);
+      color: var(--accent-gold-light);
       font-size: 0.9rem;
     }
 
@@ -292,7 +339,7 @@
     }
 
     .company-legal {
-      color: var(--accent-gold);
+      color: var(--accent-gold-light);
       font-size: 0.82rem;
       margin-top: 4px;
     }
@@ -300,8 +347,8 @@
     /* DESKTOP — MORE GOLD ACCENTS */
     @media (min-width: 721px) {
       :root {
-        --bg: #1A2112;
-        --panel: #2A3320;          /* slightly brighter panel for gold contrast */
+        --bg: #14190E;
+        --panel: #26301C;          /* slightly brighter panel for gold contrast */
       }
 
       .section {
@@ -316,20 +363,9 @@
         border: 2px solid var(--accent-gold);
       }
 
-      .btn-primary {
-        background: var(--accent-gold);
-        color: #111;
-        box-shadow: 0 0 8px rgba(194, 168, 120, 0.35);
-      }
-
-      .btn-outline {
-        border: 2px solid var(--accent-gold);
-        color: var(--accent-gold);
-      }
-
       .company-info {
         border: 2px solid var(--accent-gold);
-        color: var(--accent-gold);
+        color: var(--accent-gold-light);
       }
     }
 
@@ -357,6 +393,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
