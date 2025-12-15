@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Sleipnir Favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+<link rel="icon" href="/assets/icons/favicon.ico">
+
   <!-- SEO & Social Metadata -->
   <title>Sleipnir Transport Logistics | Long-Distance Moving Services</title>
 
@@ -13,7 +20,7 @@
   <!-- Canonical Domain -->
   <link rel="canonical" href="https://sleipnir-transport.com/">
 
-  <!-- OpenGraph (Facebook, Instagram, Messenger) -->
+  <!-- OpenGraph -->
   <meta property="og:title" content="Sleipnir Transport Logistics">
   <meta property="og:description" content="Professional long-distance moving services across all 50 states. Pennsylvania-based, owner-operated, and committed to safe and reliable transport.">
   <meta property="og:url" content="https://sleipnir-transport.com/">
@@ -26,7 +33,7 @@
   <meta name="twitter:description" content="Long-distance household moving services across the United States.">
   <meta name="twitter:image" content="https://sleipnir-transport.com/og-image.png">
 
-  <!-- Favicon (temporary until custom logo favicon is ready) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -53,7 +60,15 @@
   }
   </script>
 
-    <style>
+  <style>
+    /* Load Norse font from local file */
+    @font-face {
+      font-family: 'Norse';
+      src: url('Norse.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     /* COLOR PALETTE — OD + Gold */
     :root {
       --bg: #12170D;              /* deep OD-ish background */
@@ -130,7 +145,7 @@
 
     /* HERO SECTION */
     .hero {
-      background: radial-gradient(circle at top, rgba(209, 167, 68, 0.12), transparent 55%) ,
+      background: radial-gradient(circle at top, rgba(209, 167, 68, 0.12), transparent 55%),
                   var(--panel);
       padding: 28px 20px;
       border-radius: var(--radius-lg);
@@ -161,86 +176,63 @@
       margin-top: 8px;
     }
 
-    /* BUTTONS – GOLD */
-   .btn-primary,
-.btn-outline {
-  background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
-  color: var(--bg);  /* letters match the dark background */
-  -webkit-text-fill-color: var(--bg);
-  padding: 10px 22px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-family: 'Uncial Antiqua', system-ui, sans-serif; /* runic-ish */
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border: 2px solid var(--accent-gold);
-  box-shadow:
-    0 0 14px rgba(209, 167, 68, 0.7),
-    0 8px 18px rgba(0, 0, 0, 0.85);   /* glow around the button */
-  animation: buttonPulse 2s ease-in-out infinite;
-  transition:
-    transform 0.12s ease-out,
-    box-shadow 0.12s ease-out,
-    background 0.12s ease-out;
-}
-
-.btn-primary:hover,
-.btn-outline:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    0 0 18px rgba(229, 193, 90, 0.9),
-    0 10px 22px rgba(0, 0, 0, 0.9);
-}
-
-
+    /* RUNIC GOLD PILL BUTTONS – ALL 3 */
+    .btn-primary,
+    .btn-outline,
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
-      color: #111;
-      padding: 10px 22px;
+      color: var(--panel); /* dark OD-ish text, looks carved into gold */
+      -webkit-text-fill-color: var(--panel);
+      padding: 9px 20px;
       border-radius: 999px;
+      font-family: 'Norse', system-ui, sans-serif;
       font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       cursor: pointer;
-      border: 1px solid var(--accent-gold-dark);
+      border: 2px solid var(--accent-gold);
       box-shadow:
-        0 0 14px rgba(209, 167, 68, 0.7),
-        0 8px 18px rgba(0, 0, 0, 0.85);
-      transition: transform 0.12s ease-out,
-                  box-shadow 0.12s ease-out,
-                  background 0.12s ease-out;
+        0 0 10px rgba(209, 167, 68, 0.55),
+        0 6px 14px rgba(0, 0, 0, 0.8);     /* glow */
+      animation: pillPulse 2s ease-in-out infinite;
+      transition:
+        transform 0.12s ease-out,
+        box-shadow 0.12s ease-out,
+        background 0.12s ease-out;
+      text-align: center;
     }
 
-    .btn-primary:hover {
-      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+    .btn-primary:hover,
+    .btn-outline:hover,
+    .submit-btn:hover {
       transform: translateY(-1px);
       box-shadow:
-        0 0 18px rgba(229, 193, 90, 0.9),
-        0 10px 22px rgba(0, 0, 0, 0.9);
+        0 0 18px rgba(229, 193, 90, 0.95),
+        0 10px 22px rgba(0, 0, 0, 0.95);
     }
 
-   .btn-outline {
-  background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  padding: 10px 22px;
-  border-radius: 999px;
-  font-weight: 700;
-  cursor: pointer;
-  border: 2px solid var(--accent-gold);
-  box-shadow:
-    0 0 14px rgba(209, 167, 68, 0.7),
-    0 8px 18px rgba(0, 0, 0, 0.85);
-  transition: transform 0.12s ease-out,
-              box-shadow 0.12s ease-out,
-              background 0.12s ease-out;
-}
-.btn-outline:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    0 0 18px rgba(229, 193, 90, 0.9),
-    0 10px 22px rgba(0, 0, 0, 0.9);
-}
+    /* 2-second breathing pulse */
+    @keyframes pillPulse {
+      0% {
+        box-shadow:
+          0 0 8px rgba(209, 167, 68, 0.45),
+          0 5px 12px rgba(0, 0, 0, 0.75);
+      }
+      50% {
+        box-shadow:
+          0 0 18px rgba(229, 193, 90, 0.95),
+          0 10px 20px rgba(0, 0, 0, 0.95);
+      }
+      100% {
+        box-shadow:
+          0 0 8px rgba(209, 167, 68, 0.45),
+          0 5px 12px rgba(0, 0, 0, 0.75);
+      }
+    }
 
     /* WHAT WE OFFER – 2 GOLD CARDS */
     .offer-grid {
@@ -307,28 +299,6 @@
 
     .submit-btn {
       margin-top: 14px;
-      padding: 12px 20px;
-      background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
-      color: #000;
-      border-radius: 999px;
-      font-weight: 700;
-      cursor: pointer;
-      text-align: center;
-      border: 1px solid var(--accent-gold-dark);
-      box-shadow:
-        0 0 14px rgba(209, 167, 68, 0.7),
-        0 8px 18px rgba(0, 0, 0, 0.85);
-      transition: transform 0.12s ease-out,
-                  box-shadow 0.12s ease-out,
-                  background 0.12s ease-out;
-    }
-
-    .submit-btn:hover {
-      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
-      transform: translateY(-1px);
-      box-shadow:
-        0 0 18px rgba(229, 193, 90, 0.9),
-        0 10px 22px rgba(0, 0, 0, 0.9);
     }
 
     /* COMPANY INFO BOTTOM BLOCK */
@@ -428,7 +398,6 @@
       }
     }
   </style>
-
 </head>
 
 <body>
