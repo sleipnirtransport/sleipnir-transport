@@ -616,7 +616,7 @@
 
     const btn = form.querySelector('button[type="submit"]');
 
-    // If they already submitted this session, block resubmits when they hit "Back"
+    // Block resubmits if they've already successfully submitted in this tab session
     if (sessionStorage.getItem('quoteSubmitted') === '1') {
       if (btn) {
         btn.disabled = true;
@@ -632,8 +632,10 @@
       if (isSending) return;
       isSending = true;
 
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+      }
 
       try {
         const res = await fetch(form.action, {
@@ -653,8 +655,10 @@
         alert('Network error. Please call (908) 566-4973.');
       } finally {
         isSending = false;
-        btn.disabled = false;
-        btn.textContent = 'Send Move Details';
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = 'Send Move Details';
+        }
       }
     });
   });
