@@ -236,6 +236,13 @@
     /* 2-second breathing pulse */
     @keyframes pillPulse {
       0% {
+       @media (prefers-reduced-motion: reduce) {
+  .btn-primary, .btn-outline, .submit-btn {
+    animation: none;
+    transition: none;
+  }
+}
+        
         box-shadow:
           0 0 8px rgba(209, 167, 68, 0.45),
           0 5px 12px rgba(0, 0, 0, 0.75);
@@ -414,6 +421,8 @@
       .section {
         padding: 20px 16px;
       }
+    @media (max-width: 520px) {
+  .form-grid { grid-template-columns: 1fr;     
     }
   </style>
 </head>
@@ -669,3 +678,5 @@
     });
   });
 </script>
+</body>
+</html>
