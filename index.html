@@ -4,6 +4,144 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <title>Thank You | Sleipnir Transport Logistics</title>
+
+  <meta name="description" content="Thank you for contacting Sleipnir Transport Logistics. Your move request has been received and we’ll be in touch shortly.">
+
+  <style>
+    @font-face {
+      font-family: 'Norse';
+      src: url('Norse.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --bg: #12170D;
+      --panel: #222A1A;
+      --accent-gold: #D1A744;
+      --accent-gold-light: #E5C15A;
+      --text-main: #f5f5f5;
+      --text-muted: #b5b9b4;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    .card {
+      max-width: 520px;
+      padding: 28px 24px;
+      background: var(--panel);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--accent-gold);
+      text-align: center;
+      box-shadow: 0 0 22px rgba(0,0,0,0.7);
+    }
+
+    h1 {
+      font-family: 'Norse', system-ui, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      color: var(--accent-gold-light);
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .highlight {
+      color: var(--text-main);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
+      color: var(--panel);
+      font-family: 'Norse', system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow:
+        0 0 12px rgba(209,167,68,0.6),
+        0 8px 18px rgba(0,0,0,0.8);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 0 18px rgba(229,193,90,0.95),
+        0 12px 24px rgba(0,0,0,0.95);
+    }
+
+    .small {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Request Received</h1>
+
+    <p class="highlight">
+      Thank you for reaching out to <strong>Sleipnir Transport Logistics</strong>.
+    </p>
+
+    <p>
+      Your move details have been successfully received. We review every request
+      personally and will follow up with next steps as soon as possible.
+    </p>
+
+    <p>
+      If your move timeline is tight or you’d like to speak with us directly,
+      feel free to call — we’re happy to help.
+    </p>
+
+    <a href="tel:+19085664973" class="cta">
+      Call (908) 566-4973
+    </a>
+
+    <div class="small">
+      Safe passage. Steady handling. No rushed chaos.
+    </div>
+  </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <!-- Sleipnir Favicons (root files) -->
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
