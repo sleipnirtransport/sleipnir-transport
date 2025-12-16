@@ -442,14 +442,12 @@
 <section class="section" id="quote">
   <h2>Request a Move Quote</h2>
   <p>Send us your move details and we’ll follow up with next steps.</p>
-
-  <form action="https://formspree.io/f/mrbnvrlk" method="POST">
-    <!-- Formspree config -->
+    
+  <!-- Formspree config -->
+<form id="quoteForm" action="https://formspree.io/f/mrbnvrlk" method="POST">
     <input type="hidden" name="_subject" value="New Sleipnir Move Quote Request" />
     <input type="hidden" name="_captcha" value="false" />
     <input type="text" name="_gotcha" style="display:none">
-    <input type="hidden" name="_redirect" value="https://sleipnir-transport.com/thank-you.html">
-
 
     <div class="form-grid">
       <div class="form-group">
@@ -577,5 +575,31 @@
   </div>
 
   <!-- SEO Boost: Sleipnir Transport Logistics offers long distance moving, interstate relocation services, cross country moving, out of state household moving, Pennsylvania long distance movers, climate controlled storage, 50 state household moving services, and owner-operated professional relocation services. -->
+<script>
+  (function () {
+    const form = document.getElementById('quoteForm');
+    if (!form) return;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          window.location.href = '/thank-you.html';
+        } else {
+          alert('Could not send your request. Please call (908) 566-4973.');
+        }
+      } catch (err) {
+        alert('Network error. Please call (908) 566-4973.');
+      }
+    });
+  })();
+</script>
 </body>
 </html>
