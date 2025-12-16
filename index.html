@@ -610,24 +610,30 @@
   </div>
 
 <script>
-  (function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('quoteForm');
     if (!form) return;
 
     const btn = form.querySelector('button[type="submit"]');
+
+    // If they already submitted this session, block resubmits when they hit "Back"
+    if (sessionStorage.getItem('quoteSubmitted') === '1') {
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Request Sent';
+      }
+      return;
+    }
+
     let isSending = false;
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-
-      if (isSending) return; // stops multi-click / double-submit
+      if (isSending) return;
       isSending = true;
 
-      if (btn) {
-        btn.disabled = true;
-        btn.setAttribute('aria-disabled', 'true');
-        btn.textContent = 'Sending...';
-      }
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
 
       try {
         const res = await fetch(form.action, {
@@ -637,6 +643,7 @@
         });
 
         if (res.ok) {
+          sessionStorage.setItem('quoteSubmitted', '1');
           window.location.href = 'thank-you.html';
           return;
         }
@@ -646,12 +653,9 @@
         alert('Network error. Please call (908) 566-4973.');
       } finally {
         isSending = false;
-        if (btn) {
-          btn.disabled = false;
-          btn.removeAttribute('aria-disabled');
-          btn.textContent = 'Send Move Details';
-        }
+        btn.disabled = false;
+        btn.textContent = 'Send Move Details';
       }
     });
-  })();
+  });
 </script>
