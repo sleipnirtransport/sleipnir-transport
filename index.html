@@ -438,52 +438,99 @@
       </p>
     </section>
 
-    <!-- QUOTE FORM -->
-    <section class="section" id="quote">
-      <h2>Request a Move Quote</h2>
-      <p>Send us your move details and we’ll follow up with next steps.</p>
+<!-- QUOTE FORM -->
+<section class="section" id="quote">
+  <h2>Request a Move Quote</h2>
+  <p>Send us your move details and we’ll follow up with next steps.</p>
 
-      <form action="mailto:info@sleipnir-transport.com" method="POST" enctype="text/plain">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Name</label>
-            <input name="Name" type="text" required />
-          </div>
+  <form action="https://formspree.io/f/mrbnvrlk" method="POST">
+    <!-- Formspree config -->
+    <input type="hidden" name="_subject" value="New Sleipnir Move Quote Request" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="text" name="_gotcha" style="display:none">
 
-          <div class="form-group">
-            <label>Phone</label>
-            <input name="Phone" type="tel" required />
-          </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          id="name"
+          name="Name"
+          type="text"
+          required
+          autocomplete="name"
+        />
+      </div>
 
-          <div class="form-group">
-            <label>Email</label>
-            <input name="Email" type="email" required />
-          </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          id="phone"
+          name="Phone"
+          type="tel"
+          required
+          autocomplete="tel"
+          inputmode="tel"
+        />
+      </div>
 
-          <div class="form-group">
-            <label>Move Date</label>
-            <input name="Move Date" type="date" />
-          </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="Email"
+          type="email"
+          required
+          autocomplete="email"
+        />
+      </div>
 
-          <div class="form-group">
-            <label>Moving From (City, State)</label>
-            <input name="Moving From" type="text" required />
-          </div>
+      <div class="form-group">
+        <label for="move-date">Move Date</label>
+        <input
+          id="move-date"
+          name="Move Date"
+          type="date"
+        />
+      </div>
 
-          <div class="form-group">
-            <label>Moving To (City, State)</label>
-            <input name="Moving To" type="text" required />
-          </div>
-        </div>
+      <div class="form-group">
+        <label for="from">Moving From (City, State)</label>
+        <input
+          id="from"
+          name="Moving From"
+          type="text"
+          required
+          autocomplete="address-level2"
+        />
+      </div>
 
-        <div class="form-group" style="margin-top:12px;">
-          <label>Move Details</label>
-          <textarea name="Details" placeholder="Home size, stairs, storage needs, timing, etc."></textarea>
-        </div>
+      <div class="form-group">
+        <label for="to">Moving To (City, State)</label>
+        <input
+          id="to"
+          name="Moving To"
+          type="text"
+          required
+          autocomplete="address-level2"
+        />
+      </div>
+    </div>
 
-        <button type="submit" class="submit-btn">Send Move Details</button>
-      </form>
-    </section>
+    <div class="form-group" style="margin-top:12px;">
+      <label for="details">Move Details</label>
+      <textarea
+        id="details"
+        name="Details"
+        placeholder="Home size, stairs, storage needs, timing, etc."
+      ></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Send Move Details
+    </button>
+  </form>
+</section>
+
 
     <!-- SERVICES -->
     <section class="section">
