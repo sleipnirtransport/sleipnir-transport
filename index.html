@@ -615,12 +615,17 @@
     if (!form) return;
 
     const btn = form.querySelector('button[type="submit"]');
+    let isSending = false;
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
+      if (isSending) return; // stops multi-click / double-submit
+      isSending = true;
+
       if (btn) {
         btn.disabled = true;
+        btn.setAttribute('aria-disabled', 'true');
         btn.textContent = 'Sending...';
       }
 
@@ -633,14 +638,17 @@
 
         if (res.ok) {
           window.location.href = 'thank-you.html';
-        } else {
-          alert('Could not send your request. Please call (908) 566-4973.');
+          return;
         }
+
+        alert('Could not send your request. Please call (908) 566-4973.');
       } catch (err) {
         alert('Network error. Please call (908) 566-4973.');
       } finally {
+        isSending = false;
         if (btn) {
           btn.disabled = false;
+          btn.removeAttribute('aria-disabled');
           btn.textContent = 'Send Move Details';
         }
       }
