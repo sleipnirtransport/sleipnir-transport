@@ -614,8 +614,15 @@
     const form = document.getElementById('quoteForm');
     if (!form) return;
 
+    const btn = form.querySelector('button[type="submit"]');
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+      }
 
       try {
         const res = await fetch(form.action, {
@@ -631,9 +638,12 @@
         }
       } catch (err) {
         alert('Network error. Please call (908) 566-4973.');
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = 'Send Move Details';
+        }
       }
     });
   })();
 </script>
-</body>
-</html>
