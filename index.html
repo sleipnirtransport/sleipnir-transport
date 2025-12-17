@@ -399,34 +399,47 @@
         color: var(--accent-gold-light);
       }
     }
-
-    /* MOBILE */
-   @media (max-width: 720px) {
+/* MOBILE */
+@media (max-width: 720px) {
   .hero-logo-banner {
-    width: 320px;     /* pick a clean size */
-    max-width: 90vw;  /* still responsive */
+    width: 320px;      /* clean integer width */
+    max-width: 90vw;
   }
 
-      .offer-grid {
-        flex-direction: column;
-      }
+  .offer-grid {
+    flex-direction: column;
+  }
 
-      .addr-line1,
-      .addr-line2 {
-        display: block;
-      }
+  .addr-line1,
+  .addr-line2 {
+    display: block;
+  }
 
-      .addr-line1::after {
-        content: "";
-      }
+  .addr-line1::after {
+    content: "";
+  }
 
-      .section {
-        padding: 20px 16px;
-      }
-    @media (max-width: 520px) {
-  .form-grid { grid-template-columns: 1fr;     
-    }
-  </style>
+  .section {
+    padding: 20px 16px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 520px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ANDROID FIX — prevent fractional scaling distortion */
+@media (max-width: 720px) and (hover: none) and (pointer: coarse) {
+  .hero-logo-banner {
+    width: 320px;
+    max-width: 320px;
+  }
+}
+</style>
+
 </head>
 
 <body>
