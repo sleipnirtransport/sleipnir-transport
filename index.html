@@ -342,8 +342,26 @@
     }
 
     .company-name {
-      text-align: center;
-      margin-bottom: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+
+  .company-name img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    }
+
+  .company-name div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
     }
 
     .company-name .line1,
@@ -398,11 +416,23 @@
       .hero-logo-banner { width: min(360px, 92vw); }
     }
 
-    /* SMALL MOBILE */
-    @media (max-width: 520px) {
-      .form-grid { grid-template-columns: 1fr; }
-      .hero-logo-banner { width: min(320px, 92vw); }
-    }
+   /* SMALL MOBILE */
+@media (max-width: 520px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .hero-logo-banner { width: min(320px, 92vw); }
+
+  /* Footer fix for Android */
+  .company-name {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .company-name div {
+    align-items: center;
+    text-align: center;
+  }
+}
+
   </style>
 </head>
 
@@ -573,7 +603,7 @@
 
     <!-- COMPANY INFO -->
     <div class="company-info">
-      <div class="company-name" style="display:flex; align-items:center; justify-content:center; gap:10px;">
+      <div class="company-name">
         <img src="favicon-footer-accent.png" alt="Sleipnir Transport icon" style="width:28px; height:28px; flex-shrink:0;" />
         <div>
           <span class="line1">Sleipnir</span>
