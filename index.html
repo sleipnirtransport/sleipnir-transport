@@ -367,10 +367,11 @@
 
 .company-name div {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;     /* DESKTOP = one line */
+  align-items: center;
+  gap: 6px;
   line-height: 1.1;
-  white-space: nowrap;   /* prevent the two lines from breaking weirdly */
+  white-space: nowrap;
 }
 
 
@@ -428,21 +429,20 @@
 
    /* SMALL MOBILE */
 @media (max-width: 520px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .hero-logo-banner { width: min(320px, 92vw); }
-
   .company-name {
     flex-direction: column;
     gap: 6px;
-    white-space: normal; /* allow wrapping again on small screens */
+    white-space: normal;
   }
 
   .company-name div {
+    flex-direction: column;   /* MOBILE = stacked */
     align-items: center;
     text-align: center;
     white-space: normal;
   }
 }
+
 
   </style>
 </head>
