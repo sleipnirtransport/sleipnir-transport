@@ -341,28 +341,38 @@
       box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
     }
 
-    .company-name {
+.company-name {
   margin-bottom: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  flex-wrap: nowrap;
+
+  flex-direction: row;     /* force horizontal */
+  flex-wrap: nowrap;       /* never wrap on desktop */
+  white-space: nowrap;     /* prevent text breaking */
 }
 
+  .company-name {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
-  .company-name img {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-    }
+  flex-direction: row;   /* desktop = horizontal */
+  flex-wrap: nowrap;     /* do not wrap */
+  white-space: nowrap;   /* keep it one clean line */
+}
 
-  .company-name div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1;
-    }
+.company-name div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+  white-space: nowrap;   /* prevent the two lines from breaking weirdly */
+}
+
 
     .company-name .line1,
     .company-name .line2 {
@@ -421,15 +431,16 @@
   .form-grid { grid-template-columns: 1fr; }
   .hero-logo-banner { width: min(320px, 92vw); }
 
-  /* Footer fix for Android */
   .company-name {
     flex-direction: column;
     gap: 6px;
+    white-space: normal; /* allow wrapping again on small screens */
   }
 
   .company-name div {
     align-items: center;
     text-align: center;
+    white-space: normal;
   }
 }
 
