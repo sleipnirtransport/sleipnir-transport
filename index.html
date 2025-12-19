@@ -271,14 +271,23 @@
       }
     }
 
-    /* WHAT WE OFFER */
-    .offer-grid {
-      display: flex;
-      gap: 14px;
-      margin-top: 12px;
-      justify-content: center;
-      text-align: center;
-    }
+   /* OFFER GRID – MOBILE FIRST */
+.offer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* DESKTOP: SIDE-BY-SIDE */
+@media (min-width: 721px) {
+  .offer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+}
+
 
     .offer-card {
       flex: 1;
