@@ -279,6 +279,10 @@
   margin-top: 12px;
   text-align: center;
 }
+/* FORCE STACKING FOR WHAT WE OFFER (ALL SCREEN SIZES) */
+.offer-grid--stacked {
+  grid-template-columns: 1fr !important;
+}
 
 /* DESKTOP: SIDE-BY-SIDE */
 @media (min-width: 721px) {
@@ -590,8 +594,7 @@
     <!-- SERVICES -->
     <section class="section">
       <h2>What We Offer</h2>
-
-      <div class="offer-grid">
+       <div class="offer-grid offer-grid--stacked">
         <div class="offer-card">
           <h3>Long-Distance Household Moves</h3>
           <p>
