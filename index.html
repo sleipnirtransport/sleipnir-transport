@@ -86,7 +86,7 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* Norse font for gold headings + brand only */
+    /* Norse font for gold headings + footer brand only */
     .hero h1,
     .section h2,
     .offer-card h3,
@@ -114,7 +114,6 @@
       box-shadow: 0 0 22px rgba(0, 0, 0, 0.7);
     }
 
-    /* HERO LOGO (ANDROID-SAFE CENTERING) */
     .hero-logo-wrap {
       display: flex;
       justify-content: center;
@@ -169,7 +168,7 @@
       margin-top: 6px;
     }
 
-    /* SECTION */
+    /* SECTIONS */
     .section {
       text-align: center;
       background: var(--panel);
@@ -185,7 +184,7 @@
       width: 100%;
       text-align: center;
       margin-bottom: 12px;
-      font-size: 1.3rem; /* consolidated */
+      font-size: 1.3rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-weight: 700;
@@ -271,30 +270,8 @@
       }
     }
 
-   /* OFFER GRID – MOBILE FIRST */
-.offer-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 12px;
-  text-align: center;
-}
-/* FORCE STACKING FOR WHAT WE OFFER (ALL SCREEN SIZES) */
-.offer-grid--stacked {
-  grid-template-columns: 1fr !important;
-}
-
-/* DESKTOP: SIDE-BY-SIDE */
-@media (min-width: 721px) {
-  .offer-grid {
-    grid-template-columns: repeat(3, 1fr);
-    align-items: stretch;
-  }
-}
-
-
+    /* OFFER CARDS */
     .offer-card {
-      flex: 1;
       background: #12170F;
       border: 1px solid rgba(209, 167, 68, 0.7);
       border-radius: var(--radius-md);
@@ -312,6 +289,31 @@
     .offer-card p {
       font-size: 0.86rem;
       line-height: 1.45;
+    }
+
+    /* OFFER LAYOUTS (NO OVERRIDES, NO IMPORTANT) */
+    .offer-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* Default stacked */
+    .offer-grid--stack {
+      grid-template-columns: 1fr;
+    }
+
+    /* Desktop 3-up, mobile stacked */
+    .offer-grid--three {
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 721px) {
+      .offer-grid--three {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: stretch;
+      }
     }
 
     /* QUOTE FORM */
@@ -349,7 +351,7 @@
 
     .submit-btn { margin-top: 14px; }
 
-    /* COMPANY INFO (FOOTER) */
+    /* FOOTER */
     .company-info {
       margin-top: 35px;
       padding: 20px;
@@ -368,9 +370,9 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      flex-direction: row;     /* desktop = horizontal */
-      flex-wrap: nowrap;       /* do not wrap */
-      white-space: nowrap;     /* keep it one line */
+      flex-direction: row;
+      flex-wrap: nowrap;
+      white-space: nowrap;
     }
 
     .company-name div {
@@ -423,7 +425,6 @@
 
     /* MOBILE */
     @media (max-width: 720px) {
-      .offer-grid { flex-direction: column; }
       .addr-line1, .addr-line2 { display: block; }
       .addr-line1::after { content: ""; }
       .section { padding: 20px 16px; }
@@ -454,13 +455,7 @@
       <div class="hero-logo-wrap">
         <picture>
           <source srcset="/sleipnir-final.svg" type="image/svg+xml">
-          <img
-            class="hero-logo-banner"
-            src="/sleipnir-final.png"
-            alt="Sleipnir Transport Logistics logo"
-            loading="eager"
-            decoding="async"
-          />
+          <img class="hero-logo-banner" src="/sleipnir-final.png" alt="Sleipnir Transport Logistics logo" loading="eager" decoding="async" />
         </picture>
       </div>
 
@@ -489,17 +484,16 @@
       <h2>How It Works</h2>
       <p>Simple, steady, and organized from first contact to delivery.</p>
 
-      <div class="offer-grid" style="margin-top:14px;">
+      <!-- 3-up on desktop -->
+      <div class="offer-grid offer-grid--three" style="margin-top:14px;">
         <div class="offer-card">
           <h3>1) Request a Quote</h3>
           <p>Send your move details. We confirm the basics and ask a few quick questions to lock in scope and timing.</p>
         </div>
-
         <div class="offer-card">
           <h3>2) Secure Loading</h3>
           <p>We pad, wrap, and organize your items with labeled space and a clear plan—no rushed chaos.</p>
         </div>
-
         <div class="offer-card">
           <h3>3) Steady Delivery</h3>
           <p>You get direct updates and a single point of contact until your household is delivered safely.</p>
@@ -510,23 +504,18 @@
     <!-- ABOUT -->
     <section class="section">
       <h2>About Sleipnir</h2>
-
       <p>
         Sleipnir Transport Logistics is a long-distance moving company based in Pennsylvania and serving all 50 states. We specialize in state-to-state and cross-country household moves, focusing on organized loading, secure transport, and steady communication from the first call to final delivery.
       </p>
-
       <p>
         Our name comes from <strong>Sleipnir</strong>, the legendary eight-legged horse of Norse myth — known as the swiftest, most loyal, and most trustworthy steed ever to travel the realms. Sleipnir carried its rider safely across great distances and difficult paths, and we carry that same philosophy into our work: speed without rushing, strength without chaos, and absolute reliability from origin to destination.
       </p>
-
       <p>
         The symbol we use, often called the “Viking compass,” represents guidance, protection, and safe passage through any conditions. It reflects our approach to long-distance moving: the route may be long, but the journey should feel steady, planned, and protected.
       </p>
-
       <p>
         Rather than operating like a large van line or dispatching random crews, Sleipnir is hands-on and personal. Your belongings are padded, wrapped, labeled, and accounted for so nothing is misplaced or mishandled. You get direct communication and a single point of contact throughout the entire move.
       </p>
-
       <p>
         Our main hub is in Pennsylvania, whether you're relocating out of state, crossing the country, or planning a strategic move with storage needs, Sleipnir brings reliability, honesty, and professional handling to every mile.
       </p>
@@ -547,27 +536,22 @@
             <label for="name">Name</label>
             <input id="name" name="Name" type="text" required autocomplete="name" />
           </div>
-
           <div class="form-group">
             <label for="phone">Phone</label>
             <input id="phone" name="Phone" type="tel" required autocomplete="tel" inputmode="tel" />
           </div>
-
           <div class="form-group">
             <label for="email">Email</label>
             <input id="email" name="Email" type="email" required autocomplete="email" />
           </div>
-
           <div class="form-group">
             <label for="move-date">Move Date</label>
             <input id="move-date" name="Move Date" type="date" />
           </div>
-
           <div class="form-group">
             <label for="from">Moving From (City, State)</label>
             <input id="from" name="Moving From" type="text" required autocomplete="address-level2" />
           </div>
-
           <div class="form-group">
             <label for="to">Moving To (City, State)</label>
             <input id="to" name="Moving To" type="text" required autocomplete="address-level2" />
@@ -581,8 +565,7 @@
 
         <button type="submit" class="submit-btn">Send Move Details</button>
 
-        <p id="formStatus" role="status" aria-live="polite"
-          style="margin-top:10px; font-size:0.85rem; color:#b5b9b4;"></p>
+        <p id="formStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:0.85rem; color:#b5b9b4;"></p>
 
         <p style="margin-top:10px; font-size:0.8rem; color:#b5b9b4;">
           Need to update your request? Call
@@ -594,7 +577,9 @@
     <!-- SERVICES -->
     <section class="section">
       <h2>What We Offer</h2>
-       <div class="offer-grid offer-grid--stacked">
+
+      <!-- always stacked -->
+      <div class="offer-grid offer-grid--stack">
         <div class="offer-card">
           <h3>Long-Distance Household Moves</h3>
           <p>
@@ -618,15 +603,7 @@
     <!-- COMPANY INFO -->
     <div class="company-info">
       <div class="company-name">
-        <img
-          src="/favicon-footer-accent.png"
-          alt="Sleipnir Transport icon"
-          width="28"
-          height="28"
-          loading="lazy"
-          decoding="async"
-          style="flex-shrink:0;"
-        />
+        <img src="/favicon-footer-accent.png" alt="Sleipnir Transport icon" width="28" height="28" loading="lazy" decoding="async" style="flex-shrink:0;" />
         <div>
           <span class="line1">Sleipnir</span>
           <span class="line2">Transport Logistics LLC</span>
