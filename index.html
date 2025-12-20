@@ -600,6 +600,18 @@
             <h3>Moving From</h3>
 
             <div class="form-group">
+              <label for="from-zip">ZIP (optional)</label>
+              <input
+                id="from-zip"
+                name="Moving From ZIP"
+                type="text"
+                inputmode="numeric"
+                pattern="^\d{5}(-\d{4})?$"
+                placeholder="e.g. 07030 or 07030-1234"
+              />
+            </div>
+
+            <div class="form-group">
               <label for="from-city">City</label>
               <input id="from-city" name="Moving From City" type="text" required placeholder="e.g. Hoboken" autocomplete="address-level2" />
             </div>
@@ -623,23 +635,23 @@
                 <option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
               </select>
             </div>
-
-            <div class="form-group">
-              <label for="from-zip">ZIP (optional)</label>
-              <input
-                id="from-zip"
-                name="Moving From ZIP"
-                type="text"
-                inputmode="numeric"
-                pattern="^\d{5}(-\d{4})?$"
-                placeholder="e.g. 07030 or 07030-1234"
-              />
-            </div>
           </div>
 
           <!-- MOVING TO bubble -->
           <div class="location-card">
             <h3>Moving To</h3>
+
+            <div class="form-group">
+              <label for="to-zip">ZIP (optional)</label>
+              <input
+                id="to-zip"
+                name="Moving To ZIP"
+                type="text"
+                inputmode="numeric"
+                pattern="^\d{5}(-\d{4})?$"
+                placeholder="e.g. 80202 or 80202-1234"
+              />
+            </div>
 
             <div class="form-group">
               <label for="to-city">City</label>
@@ -664,18 +676,6 @@
                 <option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option>
                 <option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
               </select>
-            </div>
-
-            <div class="form-group">
-              <label for="to-zip">ZIP (optional)</label>
-              <input
-                id="to-zip"
-                name="Moving To ZIP"
-                type="text"
-                inputmode="numeric"
-                pattern="^\d{5}(-\d{4})?$"
-                placeholder="e.g. 80202 or 80202-1234"
-              />
             </div>
           </div>
         </div>
