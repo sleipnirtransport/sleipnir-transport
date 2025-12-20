@@ -375,15 +375,15 @@
       text-align: left;
     }
 
-   .location-card h3 {
-  font-family: 'Norse', system-ui, sans-serif;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent-gold);
-  font-size: 1.05rem; /* slightly bigger, not shouty */
-  margin-bottom: 12px;
-  text-align: center; /* center the header */
-}
+    .location-card h3 {
+      font-family: 'Norse', system-ui, sans-serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      text-align: center;
+    }
 
     .location-card .form-group {
       margin-bottom: 10px;
@@ -513,10 +513,10 @@
         <a href="#quote" class="btn-outline">Request a Move Quote</a>
       </div>
 
-     <div class="hero-trust">
-       <p>Licensed & Insured • DOT 4498796 • MC 1179452</p>
-    </div>
-</section> 
+      <div class="hero-trust">
+        <p>Licensed & Insured • DOT 4498796 • MC 1179452</p>
+      </div>
+    </section>
 
     <!-- HOW IT WORKS -->
     <section class="section">
@@ -552,8 +552,8 @@
         The symbol we use, often called the “Viking compass,” represents guidance, protection, and safe passage through any conditions. It reflects our approach to long-distance moving: the route may be long, but the journey should feel steady, planned, and protected.
       </p>
       <p>
-         We’re an owner-operated household goods moving company driven by accountability, care, and hands-on attention. Every move is personally overseen, ensuring your home and belongings are treated with the same respect we give our own.
-       </p>
+        We’re an owner-operated household goods moving company driven by accountability, care, and hands-on attention. Every move is personally overseen, ensuring your home and belongings are treated with the same respect we give our own.
+      </p>
       <p>
         From the first conversation to final delivery, we focus on clear communication, reliable execution, and protecting what matters most—your home, your time, and your trust.
       </p>
@@ -564,12 +564,12 @@
       <h2>Request a Move Quote</h2>
       <p>Send us your move details and we’ll follow up with next steps.</p>
 
+      <!-- ✅ KEEP THIS ACTION AS EASYLY / FORMSPREE LIVE -->
       <form id="quoteForm" action="https://formspree.io/f/mrbnvrlk" method="POST">
         <input type="hidden" name="_subject" value="New Sleipnir Move Quote Request" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="text" name="_gotcha" style="display:none" />
 
-        <!-- Top info stays exactly in the main grid -->
         <div class="form-grid">
           <div class="form-group">
             <label for="name">Name</label>
@@ -589,9 +589,7 @@
           </div>
         </div>
 
-        <!-- Inner bubbles (inside Request a Move Quote bubble) -->
         <div class="locations-grid" aria-label="Move locations">
-          <!-- MOVING FROM bubble -->
           <div class="location-card">
             <h3>Moving From</h3>
 
@@ -633,7 +631,6 @@
             </div>
           </div>
 
-          <!-- MOVING TO bubble -->
           <div class="location-card">
             <h3>Moving To</h3>
 
@@ -676,7 +673,6 @@
           </div>
         </div>
 
-        <!-- Details stays at the bottom -->
         <div class="form-group" style="margin-top:12px;">
           <label for="details">Move Details</label>
           <textarea id="details" name="Details" placeholder="Home size, stairs, storage needs, timing, etc."></textarea>
@@ -753,6 +749,9 @@
       const form = document.getElementById('quoteForm');
       if (!form) return;
 
+      // ✅ Sleipnir Transport–Leads (Zapier -> Google Sheets)
+      const ZAPIER_WEBHOOK = "https://hooks.zapier.com/hooks/catch/25756138/uakuyot/";
+
       const btn = form.querySelector('button[type="submit"]');
       const status = document.getElementById('formStatus');
 
@@ -813,7 +812,6 @@
         if (from.city) from.city.value = titleCaseCity(from.city.value);
         if (to.city) to.city.value = titleCaseCity(to.city.value);
 
-        // dropdown values already clean, but lock to uppercase anyway
         if (from.state?.value) from.state.value = from.state.value.toUpperCase();
         if (to.state?.value) to.state.value = to.state.value.toUpperCase();
       }
@@ -846,6 +844,28 @@
 
       let isSending = false;
 
+      // Non-blocking CRM copy: don’t ever stop the customer flow if Zapier is down
+      function sendToZapierNonBlocking() {
+        try {
+          const params = new URLSearchParams();
+          const fd = new FormData(form);
+          for (const [k, v] of fd.entries()) params.append(k, v);
+
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon(ZAPIER_WEBHOOK, params);
+          } else {
+            fetch(ZAPIER_WEBHOOK, {
+              method: "POST",
+              body: params,
+              headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+              keepalive: true
+            }).catch(() => {});
+          }
+        } catch (e) {
+          // silent by design
+        }
+      }
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (isSending) return;
@@ -853,7 +873,6 @@
 
         if (status) status.textContent = '';
 
-        // Clean fields right before submit so Easyly gets consistent data
         cleanLocationFields();
 
         if (btn) {
@@ -864,6 +883,7 @@
         let ok = false;
 
         try {
+          // Primary path: Formspree (feeds Easyly)
           const res = await fetch(form.action, {
             method: 'POST',
             body: new FormData(form),
@@ -871,6 +891,9 @@
           });
 
           ok = res.ok;
+
+          // Secondary path: Zapier -> Google Sheets (Sleipnir Transport–Leads)
+          if (ok) sendToZapierNonBlocking();
 
           if (ok) {
             sessionStorage.setItem('quoteSubmitted', '1');
