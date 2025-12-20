@@ -548,10 +548,71 @@
             <label for="move-date">Move Date</label>
             <input id="move-date" name="Move Date" type="date" />
           </div>
+
+          <!-- UPDATED: Moving From City/State (split + standardized) -->
           <div class="form-group">
-            <label for="from">Moving From (City, State)</label>
-            <input id="from" name="Moving From" type="text" required autocomplete="address-level2" />
+            <label for="from-city">Moving From City</label>
+            <input id="from-city" name="Moving From City" type="text" required autocomplete="address-level2" placeholder="e.g. Hoboken" />
           </div>
+          <div class="form-group">
+            <label for="from-state">Moving From State</label>
+            <select id="from-state" name="Moving From State" required autocomplete="address-level1">
+              <option value="" selected disabled>Select state</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
+
+          <!-- Existing ZIP field kept -->
           <div class="form-group">
             <label for="from-zip">Moving From ZIP</label>
             <input
@@ -563,11 +624,72 @@
               placeholder="e.g. 07030 or 07030-1234"
             />
           </div>
+
+          <!-- UPDATED: Moving To City/State (split + standardized) -->
           <div class="form-group">
-            <label for="to">Moving To (City, State)</label>
-            <input id="to" name="Moving To" type="text" required autocomplete="address-level2" />
+            <label for="to-city">Moving To City</label>
+            <input id="to-city" name="Moving To City" type="text" required autocomplete="address-level2" placeholder="e.g. Denver" />
           </div>
-                   <div class="form-group">
+          <div class="form-group">
+            <label for="to-state">Moving To State</label>
+            <select id="to-state" name="Moving To State" required autocomplete="address-level1">
+              <option value="" selected disabled>Select state</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
+
+          <!-- Existing ZIP field kept -->
+          <div class="form-group">
             <label for="to-zip">Moving To ZIP</label>
             <input
               id="to-zip"
@@ -632,19 +754,19 @@
         </div>
       </div>
 
-     <div class="company-address">
-  <span class="addr-line1">1275 Glenlivet Drive, Suite 100</span>
-  <span class="addr-line2">Allentown, PA 18106</span>
-</div>
+      <div class="company-address">
+        <span class="addr-line1">1275 Glenlivet Drive, Suite 100</span>
+        <span class="addr-line2">Allentown, PA 18106</span>
+      </div>
 
-<div class="company-legal">MC 1179452 • DOT 4498796</div>
+      <div class="company-legal">MC 1179452 • DOT 4498796</div>
 
-<div class="company-email" style="margin-top:8px; font-size:0.85rem;">
-  Email:
-  <a href="mailto:info@sleipnir-transport.com" style="color:#E5C15A; font-weight:600;">
-    info@sleipnir-transport.com
-  </a>
-</div>
+      <div class="company-email" style="margin-top:8px; font-size:0.85rem;">
+        Email:
+        <a href="mailto:info@sleipnir-transport.com" style="color:#E5C15A; font-weight:600;">
+          info@sleipnir-transport.com
+        </a>
+      </div>
 
       <div style="margin-top:8px; font-size:0.8rem;">
         <a href="/privacy.html" style="color:#E5C15A; font-weight:600;">Privacy Policy</a>
@@ -660,6 +782,74 @@
       const btn = form.querySelector('button[type="submit"]');
       let status = document.getElementById('formStatus');
 
+      // Location fields
+      const fromCity = document.getElementById('from-city');
+      const fromState = document.getElementById('from-state');
+      const fromZip = document.getElementById('from-zip');
+
+      const toCity = document.getElementById('to-city');
+      const toState = document.getElementById('to-state');
+      const toZip = document.getElementById('to-zip');
+
+      // ----- helpers -----
+      function titleCaseCity(s) {
+        return (s || "")
+          .trim()
+          .toLowerCase()
+          .split(/\s+/)
+          .filter(Boolean)
+          .map(w => w[0].toUpperCase() + w.slice(1))
+          .join(" ")
+          .replace(/\b(Mc)([a-z])/g, (_, a, b) => a + b.toUpperCase());
+      }
+
+      function normalizeZip(raw) {
+        const v = (raw || "").trim();
+        if (!v) return "";
+        const five = v.split("-")[0];
+        return /^\d{5}$/.test(five) ? five : "";
+      }
+
+      async function fillCityStateFromZip(zipValue, cityEl, stateEl) {
+        const zip = normalizeZip(zipValue);
+        if (!zip) return;
+
+        // Reliable direction: ZIP -> City/State
+        try {
+          const res = await fetch(`https://api.zippopotam.us/us/${zip}`);
+          if (!res.ok) return;
+          const data = await res.json();
+
+          const place = data && data.places && data.places[0];
+          if (!place) return;
+
+          const city = place["place name"] || "";
+          const stateAbbr = place["state abbreviation"] || "";
+
+          if (city && cityEl) cityEl.value = titleCaseCity(city);
+          if (stateAbbr && stateEl) stateEl.value = stateAbbr;
+        } catch (e) {
+          // fail silently
+        }
+      }
+
+      function cleanLocationFields() {
+        if (fromCity) fromCity.value = titleCaseCity(fromCity.value);
+        if (toCity) toCity.value = titleCaseCity(toCity.value);
+
+        if (fromState && fromState.value) fromState.value = fromState.value.toUpperCase();
+        if (toState && toState.value) toState.value = toState.value.toUpperCase();
+      }
+
+      // City formatting on blur
+      if (fromCity) fromCity.addEventListener('blur', () => { fromCity.value = titleCaseCity(fromCity.value); });
+      if (toCity) toCity.addEventListener('blur', () => { toCity.value = titleCaseCity(toCity.value); });
+
+      // ZIP -> City/State autofill on blur
+      if (fromZip) fromZip.addEventListener('blur', () => fillCityStateFromZip(fromZip.value, fromCity, fromState));
+      if (toZip) toZip.addEventListener('blur', () => fillCityStateFromZip(toZip.value, toCity, toState));
+
+      // Status setup (kept)
       if (!status) {
         status = document.createElement('p');
         status.id = 'formStatus';
@@ -687,6 +877,9 @@
         isSending = true;
 
         status.textContent = '';
+
+        // Clean the values right before submission so Easyly gets clean data.
+        cleanLocationFields();
 
         if (btn) {
           btn.disabled = true;
