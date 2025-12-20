@@ -351,6 +351,49 @@
 
     .submit-btn { margin-top: 14px; }
 
+    /* INNER LOCATION BUBBLES (inside Request a Move Quote section) */
+    .locations-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    @media (min-width: 721px) {
+      .locations-grid {
+        grid-template-columns: 1fr 1fr; /* From left, To right */
+        align-items: start;
+      }
+    }
+
+    .location-card {
+      background: #12170F;
+      border: 1px solid rgba(209, 167, 68, 0.75);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.6);
+      text-align: left;
+    }
+
+    .location-card h3 {
+      font-family: 'Norse', system-ui, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .location-card .form-group {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .location-card .form-group:last-child {
+      margin-bottom: 0;
+    }
+
     /* FOOTER */
     .company-info {
       margin-top: 35px;
@@ -484,7 +527,6 @@
       <h2>How It Works</h2>
       <p>Simple, steady, and organized from first contact to delivery.</p>
 
-      <!-- 3-up on desktop -->
       <div class="offer-grid offer-grid--three" style="margin-top:14px;">
         <div class="offer-card">
           <h3>1) Request a Quote</h3>
@@ -531,6 +573,7 @@
         <input type="hidden" name="_captcha" value="false" />
         <input type="text" name="_gotcha" style="display:none" />
 
+        <!-- Top info stays exactly in the main grid -->
         <div class="form-grid">
           <div class="form-group">
             <label for="name">Name</label>
@@ -548,160 +591,96 @@
             <label for="move-date">Move Date</label>
             <input id="move-date" name="Move Date" type="date" />
           </div>
+        </div>
 
-          <!-- UPDATED: Moving From City/State (split + standardized) -->
-          <div class="form-group">
-            <label for="from-city">Moving From City</label>
-            <input id="from-city" name="Moving From City" type="text" required autocomplete="address-level2" placeholder="e.g. Hoboken" />
-          </div>
-          <div class="form-group">
-            <label for="from-state">Moving From State</label>
-            <select id="from-state" name="Moving From State" required autocomplete="address-level1">
-              <option value="" selected disabled>Select state</option>
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CA">California</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="DC">District of Columbia</option>
-              <option value="FL">Florida</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada</option>
-              <option value="NH">New Hampshire</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota</option>
-              <option value="TN">Tennessee</option>
-              <option value="TX">Texas</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select>
+        <!-- Inner bubbles (inside Request a Move Quote bubble) -->
+        <div class="locations-grid" aria-label="Move locations">
+          <!-- MOVING FROM bubble -->
+          <div class="location-card">
+            <h3>Moving From</h3>
+
+            <div class="form-group">
+              <label for="from-city">City</label>
+              <input id="from-city" name="Moving From City" type="text" required placeholder="e.g. Hoboken" autocomplete="address-level2" />
+            </div>
+
+            <div class="form-group">
+              <label for="from-state">State</label>
+              <select id="from-state" name="Moving From State" required autocomplete="address-level1">
+                <option value="" selected disabled>Select state</option>
+                <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option>
+                <option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option>
+                <option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option>
+                <option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option>
+                <option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option>
+                <option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option>
+                <option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option>
+                <option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="from-zip">ZIP (optional)</label>
+              <input
+                id="from-zip"
+                name="Moving From ZIP"
+                type="text"
+                inputmode="numeric"
+                pattern="^\d{5}(-\d{4})?$"
+                placeholder="e.g. 07030 or 07030-1234"
+              />
+            </div>
           </div>
 
-          <!-- Existing ZIP field kept -->
-          <div class="form-group">
-            <label for="from-zip">Moving From ZIP</label>
-            <input
-              id="from-zip"
-              name="Moving From ZIP"
-              type="text"
-              inputmode="numeric"
-              pattern="^\d{5}(-\d{4})?$"
-              placeholder="e.g. 07030 or 07030-1234"
-            />
-          </div>
+          <!-- MOVING TO bubble -->
+          <div class="location-card">
+            <h3>Moving To</h3>
 
-          <!-- UPDATED: Moving To City/State (split + standardized) -->
-          <div class="form-group">
-            <label for="to-city">Moving To City</label>
-            <input id="to-city" name="Moving To City" type="text" required autocomplete="address-level2" placeholder="e.g. Denver" />
-          </div>
-          <div class="form-group">
-            <label for="to-state">Moving To State</label>
-            <select id="to-state" name="Moving To State" required autocomplete="address-level1">
-              <option value="" selected disabled>Select state</option>
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CA">California</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="DC">District of Columbia</option>
-              <option value="FL">Florida</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada</option>
-              <option value="NH">New Hampshire</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota</option>
-              <option value="TN">Tennessee</option>
-              <option value="TX">Texas</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select>
-          </div>
+            <div class="form-group">
+              <label for="to-city">City</label>
+              <input id="to-city" name="Moving To City" type="text" required placeholder="e.g. Denver" autocomplete="address-level2" />
+            </div>
 
-          <!-- Existing ZIP field kept -->
-          <div class="form-group">
-            <label for="to-zip">Moving To ZIP</label>
-            <input
-              id="to-zip"
-              name="Moving To ZIP"
-              type="text"
-              inputmode="numeric"
-              pattern="^\d{5}(-\d{4})?$"
-              placeholder="e.g. 80202 or 80202-1234"
-            />
-          </div>
-        </div> <!-- CLOSES .form-grid -->
+            <div class="form-group">
+              <label for="to-state">State</label>
+              <select id="to-state" name="Moving To State" required autocomplete="address-level1">
+                <option value="" selected disabled>Select state</option>
+                <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option>
+                <option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option>
+                <option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option>
+                <option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option>
+                <option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option>
+                <option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option>
+                <option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option>
+                <option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+              </select>
+            </div>
 
+            <div class="form-group">
+              <label for="to-zip">ZIP (optional)</label>
+              <input
+                id="to-zip"
+                name="Moving To ZIP"
+                type="text"
+                inputmode="numeric"
+                pattern="^\d{5}(-\d{4})?$"
+                placeholder="e.g. 80202 or 80202-1234"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Details stays at the bottom -->
         <div class="form-group" style="margin-top:12px;">
           <label for="details">Move Details</label>
           <textarea id="details" name="Details" placeholder="Home size, stairs, storage needs, timing, etc."></textarea>
@@ -722,7 +701,6 @@
     <section class="section">
       <h2>What We Offer</h2>
 
-      <!-- always stacked -->
       <div class="offer-grid offer-grid--stack">
         <div class="offer-card">
           <h3>Long-Distance Household Moves</h3>
@@ -780,18 +758,21 @@
       if (!form) return;
 
       const btn = form.querySelector('button[type="submit"]');
-      let status = document.getElementById('formStatus');
+      const status = document.getElementById('formStatus');
 
-      // Location fields
-      const fromCity = document.getElementById('from-city');
-      const fromState = document.getElementById('from-state');
-      const fromZip = document.getElementById('from-zip');
+      // Explicit mapping — prevents cross-fill bugs
+      const from = {
+        city: document.getElementById('from-city'),
+        state: document.getElementById('from-state'),
+        zip: document.getElementById('from-zip')
+      };
 
-      const toCity = document.getElementById('to-city');
-      const toState = document.getElementById('to-state');
-      const toZip = document.getElementById('to-zip');
+      const to = {
+        city: document.getElementById('to-city'),
+        state: document.getElementById('to-state'),
+        zip: document.getElementById('to-zip')
+      };
 
-      // ----- helpers -----
       function titleCaseCity(s) {
         return (s || "")
           .trim()
@@ -810,55 +791,53 @@
         return /^\d{5}$/.test(five) ? five : "";
       }
 
-      async function fillCityStateFromZip(zipValue, cityEl, stateEl) {
+      async function fillCityStateFromZip(zipValue, target) {
         const zip = normalizeZip(zipValue);
         if (!zip) return;
 
-        // Reliable direction: ZIP -> City/State
         try {
           const res = await fetch(`https://api.zippopotam.us/us/${zip}`);
           if (!res.ok) return;
           const data = await res.json();
 
-          const place = data && data.places && data.places[0];
+          const place = data?.places?.[0];
           if (!place) return;
 
           const city = place["place name"] || "";
           const stateAbbr = place["state abbreviation"] || "";
 
-          if (city && cityEl) cityEl.value = titleCaseCity(city);
-          if (stateAbbr && stateEl) stateEl.value = stateAbbr;
+          if (city && target.city) target.city.value = titleCaseCity(city);
+          if (stateAbbr && target.state) target.state.value = stateAbbr;
         } catch (e) {
-          // fail silently
+          // Fail silently if network blocks it
         }
       }
 
       function cleanLocationFields() {
-        if (fromCity) fromCity.value = titleCaseCity(fromCity.value);
-        if (toCity) toCity.value = titleCaseCity(toCity.value);
+        if (from.city) from.city.value = titleCaseCity(from.city.value);
+        if (to.city) to.city.value = titleCaseCity(to.city.value);
 
-        if (fromState && fromState.value) fromState.value = fromState.value.toUpperCase();
-        if (toState && toState.value) toState.value = toState.value.toUpperCase();
+        // dropdown values already clean, but lock to uppercase anyway
+        if (from.state?.value) from.state.value = from.state.value.toUpperCase();
+        if (to.state?.value) to.state.value = to.state.value.toUpperCase();
       }
 
       // City formatting on blur
-      if (fromCity) fromCity.addEventListener('blur', () => { fromCity.value = titleCaseCity(fromCity.value); });
-      if (toCity) toCity.addEventListener('blur', () => { toCity.value = titleCaseCity(toCity.value); });
+      if (from.city) from.city.addEventListener('blur', () => { from.city.value = titleCaseCity(from.city.value); });
+      if (to.city) to.city.addEventListener('blur', () => { to.city.value = titleCaseCity(to.city.value); });
 
-      // ZIP -> City/State autofill on blur
-      if (fromZip) fromZip.addEventListener('blur', () => fillCityStateFromZip(fromZip.value, fromCity, fromState));
-      if (toZip) toZip.addEventListener('blur', () => fillCityStateFromZip(toZip.value, toCity, toState));
-
-      // Status setup (kept)
-      if (!status) {
-        status = document.createElement('p');
-        status.id = 'formStatus';
-        status.setAttribute('role', 'status');
-        status.setAttribute('aria-live', 'polite');
-        status.style.marginTop = '10px';
-        status.style.fontSize = '0.85rem';
-        status.style.color = '#b5b9b4';
-        form.appendChild(status);
+      // ZIP -> City/State (each ZIP ONLY fills its own side)
+      if (from.zip) {
+        from.zip.addEventListener('blur', () => fillCityStateFromZip(from.zip.value, from));
+        from.zip.addEventListener('input', () => {
+          if (normalizeZip(from.zip.value)) fillCityStateFromZip(from.zip.value, from);
+        });
+      }
+      if (to.zip) {
+        to.zip.addEventListener('blur', () => fillCityStateFromZip(to.zip.value, to));
+        to.zip.addEventListener('input', () => {
+          if (normalizeZip(to.zip.value)) fillCityStateFromZip(to.zip.value, to);
+        });
       }
 
       if (sessionStorage.getItem('quoteSubmitted') === '1') {
@@ -876,9 +855,9 @@
         if (isSending) return;
         isSending = true;
 
-        status.textContent = '';
+        if (status) status.textContent = '';
 
-        // Clean the values right before submission so Easyly gets clean data.
+        // Clean fields right before submit so Easyly gets consistent data
         cleanLocationFields();
 
         if (btn) {
@@ -903,9 +882,9 @@
             return;
           }
 
-          status.textContent = 'Could not send your request. Please call (908) 566-4973.';
+          if (status) status.textContent = 'Could not send your request. Please call (908) 566-4973.';
         } catch (err) {
-          status.textContent = 'Network error. Please call (908) 566-4973.';
+          if (status) status.textContent = 'Network error. Please call (908) 566-4973.';
         } finally {
           isSending = false;
 
